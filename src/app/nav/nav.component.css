@@ -1,0 +1,14 @@
+.masthead-brand
+{
+  color: rgb(71, 218, 71);
+}
+
+.masthead-brand__text
+{
+  margin-left: 5px;
+}
+
+.masthead-brand:hover
+{
+  cursor: pointer
+}

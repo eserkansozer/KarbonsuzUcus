@@ -1,0 +1,11 @@
+<div class="inner">
+  <h2 (click)="onHomeClick()" class="masthead-brand">
+    <fa-icon [icon]="faTree"></fa-icon>
+    <span i18n="@@NavMainheader" class="masthead-brand__text">Offset My Carbon</span>
+  </h2>
+  <nav class="nav nav-masthead justify-content-center">
+    <a i18n="@@NavHome" class="nav-link" [routerLink]="['/home']" routerLinkActive="router-link-active" >Home</a>
+    <a i18n="@@NavAbout" class="nav-link" [routerLink]="['/about']" routerLinkActive="router-link-active" >About</a>
+    <a i18n="@@NavContact" class="nav-link" [routerLink]="['/contact']" routerLinkActive="router-link-active" >Contact</a>
+  </nav>
+</div>

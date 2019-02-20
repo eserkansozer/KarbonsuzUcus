@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-16"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en">
+    <body>
+      <trans-unit id="NavMainheader" datatype="html">
+        <source>Offset My Carbon</source>
+		<target>Karbonumu Sıfırla</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/nav/nav.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="NavHome">
+        <source>Home</source>
+        <target>Ana Sayfa</target>
+      </trans-unit>
+      <trans-unit id="NavAbout">
+        <source>About</source>
+        <target>Hakkımızda</target>
+      </trans-unit>
+      <trans-unit id="NavContact">
+        <source>Contact</source>
+        <target>İletişim</target>
+      </trans-unit>
+      <trans-unit id="FootSiteName">
+        <source>Offset My Carbon</source>
+        <target>Karbonumu Sıfırla</target>
+      </trans-unit>
+      <trans-unit id="FootSocialResp">
+        <source> is a social responsibility project by </source>
+        <target> bir sosyal sorumluluk projesidir</target>
+      </trans-unit>
+      <trans-unit id="FootGroovy">
+        <source>Groovy Technologies Ltd</source>
+        <target>, Groovy Technologies Ltd</target>
+      </trans-unit>
+      <trans-unit id="ContentHeader">
+        <source>Aviation is the one of the biggest contributors to carbon emissions</source>
+        <target>Seyahat amaçlı uçuşlar karbondiyoksit salımınının en büyük kaynağıdır.</target>
+      </trans-unit>
+      <trans-unit id="ContentText">
+        <source>You can simply calculate your carbon footprint of your flights and offset them using our simple tool.</source>
+        <target>Hesap aracımızı kullanarak uçuşunuzun karbon ayakizini kolayca hesaplayabilirsiniz.</target>
+      </trans-unit>
+      <trans-unit id="ContentStartHere">
+        <source>Start here</source>
+        <target>Başlayın</target>
+      </trans-unit>
+      <trans-unit id="FCalcLookForest">
+        <source>Have a look at our forest!</source>
+        <target>Ormanımıza göz atın!</target>
+      </trans-unit>
+      <trans-unit id="Co2Content">
+        <source>
+  CO2 is bad
+</source>
+        <target>CO2 kötü kaka</target>
+      </trans-unit>
+      <trans-unit id="ContactContent">
+        <source>
+  Contact us if you would like to contribute to our project.
+</source>
+        <target>
+		Bizimle iletişime geçin.
+        </target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

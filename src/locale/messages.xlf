@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="NavMainheader" datatype="html">
+        <source>Offset My Carbon</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/nav/nav.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="NavHome" datatype="html">
+        <source>Home</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/nav/nav.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="NavAbout" datatype="html">
+        <source>About</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/nav/nav.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="NavContact" datatype="html">
+        <source>Contact</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/nav/nav.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="FootSiteName" datatype="html">
+        <source>Offset My Carbon</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/footer/footer.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="FootSocialResp" datatype="html">
+        <source> is a social responsibility project by </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/footer/footer.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="FootGroovy" datatype="html">
+        <source>Groovy Technologies Ltd</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/footer/footer.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ContentHeader" datatype="html">
+        <source>Aviation is the one of the biggest contributors to carbon emissions</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/content/content.component.html</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ContentText" datatype="html">
+        <source>You can simply calculate your carbon footprint of your flights and offset them using our simple tool.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/content/content.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ContentStartHere" datatype="html">
+        <source>Start here</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/content/content.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="FCalcLookForest" datatype="html">
+        <source>Have a look at our forest!</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/flight-calculator/flight-calculator.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="Co2Content" datatype="html">
+        <source>
+  CO2 is bad
+</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/co2-info/co2-info.component.html</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ContactContent" datatype="html">
+        <source>
+  Contact us if you would like to contribute to our project.
+</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/contact/contact.component.html</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
