@@ -1,5 +1,5 @@
 import { AirportModel } from './../Models/AirportModel';
-import { Component, OnInit, Inject, LOCALE_ID } from '@angular/core';
+import { Component, OnInit, Inject, LOCALE_ID, EventEmitter } from '@angular/core';
 import { TypeaheadMatch } from 'ngx-bootstrap/typeahead/public_api';
 import { HttpClient } from '@angular/common/http';
 
@@ -22,10 +22,14 @@ export class FlightCalculatorComponent implements OnInit {
   distance: number;
   distanceIsKm: boolean;
   distanceIsMiles: boolean;
+  refresh: EventEmitter<any> = new EventEmitter();
 
   constructor(private http: HttpClient, @Inject(LOCALE_ID) locale: string) {
     this.distanceIsKm = locale !== 'en-US';
     this.distanceIsMiles = locale === 'en-US';
+    this.refresh.subscribe(() => {
+      this.calculateDistance();
+    });
   }
 
   ngOnInit() {
@@ -36,16 +40,16 @@ export class FlightCalculatorComponent implements OnInit {
 
   onFromSelect(event: TypeaheadMatch): void {
     this.selectedFromAirport = event.item;
-    if (this.selectedToAirport) {
-      this.calculateDistance();
-    }
+    this.refresh.emit();
   }
 
   onToSelect(event: TypeaheadMatch): void {
     this.selectedToAirport = event.item;
-    if (this.selectedFromAirport) {
-      this.calculateDistance();
-    }
+    this.refresh.emit();
+  }
+
+  onReturnSelect() {
+    this.refresh.emit();
   }
 
   calculateDistance() {
@@ -53,12 +57,13 @@ export class FlightCalculatorComponent implements OnInit {
       const p1 = new LatLon(Dms.parseDMS(this.selectedFromAirport.Lat), Dms.parseDMS(this.selectedFromAirport.Lon));
       const p2 = new LatLon(Dms.parseDMS(this.selectedToAirport.Lat), Dms.parseDMS(this.selectedToAirport.Lon));
       this.distance = parseFloat(p1.distanceTo(p2).toPrecision(2)) / 1000;
+      if (this.distanceIsMiles) {
+        this.distance = this.distance * 0.621371;
+      }
       if (this.isReturnTrip) {
         this.distance *= 2;
       }
-      if (this.distanceIsMiles) {
-        this.distance = parseFloat((this.distance * 0.621371).toFixed(2));
-      }
+      this.distance = parseFloat(this.distance.toFixed(0));
     } else {
       this.distance = null;
     }
