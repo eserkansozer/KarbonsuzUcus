@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +19,9 @@ import { ContactComponent } from './contact/contact.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ForestComponent } from './forest/forest.component';
 import { HttpClientModule } from '@angular/common/http';
+import { RatingModule } from 'ngx-bootstrap/rating';
+import { DonateComponent } from './donate/donate.component';
+import { ConfirmationComponent } from './confirmation/confirmation.component';
 
 @NgModule({
    declarations: [
@@ -29,7 +34,9 @@ import { HttpClientModule } from '@angular/common/http';
       Co2InfoComponent,
       ContactComponent,
       NotFoundComponent,
-      ForestComponent
+      ForestComponent,
+      DonateComponent,
+      ConfirmationComponent
    ],
    imports: [
       BrowserModule,
@@ -38,6 +45,9 @@ import { HttpClientModule } from '@angular/common/http';
       FormsModule,
       HttpClientModule,
       TypeaheadModule.forRoot(),
+      CarouselModule.forRoot(),
+      RatingModule.forRoot(),
+      TooltipModule.forRoot(),
       RouterModule.forRoot(
         [
           {path: '', component: ContentComponent},
@@ -46,6 +56,8 @@ import { HttpClientModule } from '@angular/common/http';
           {path: 'forest', component: ForestComponent},
           {path: 'about', component: Co2InfoComponent},
           {path: 'contact', component: ContactComponent},
+          {path: 'donate', component: DonateComponent},
+          {path: 'confirmation', component: ConfirmationComponent},
           {path: '**', component: NotFoundComponent}
         ]
       )

@@ -1,0 +1,49 @@
+<h2 class="pt-5">Please select and donate via one of our preferred charities below</h2>
+
+<div class="my-5">
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="assets/images/logo_tema.jpg" alt="TEMA">
+        <div class="card-body">
+          <h5 class="card-title">TEMA</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a class="btn btn-outline-success" (click)="onDonate('tema')" routerLink="/confirmation">Donate 2 trees</a>
+        </div>
+      </div>
+
+      <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="assets/images/logo_cekul.png" alt="ÇEKÜL">
+          <div class="card-body">
+            <h5 class="card-title">ÇEKÜL</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a class="btn btn-outline-success" (click)="onDonate('cekul')"  routerLink="/confirmation">Donate 2 trees</a>
+          </div>
+      </div>
+
+      <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="assets/images/logo_cekul.png" alt="EGE ORMAN VAKFI">
+          <div class="card-body">
+            <h5 class="card-title">EGE ORMAN VAKFI</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-outline-success" (click)="onDonate('egeorman')"  routerLink="/confirmation">Donate 2 trees</a>
+          </div>
+      </div>
+
+      <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="assets/images/logo_cekul.png" alt="DOÇEV">
+          <div class="card-body">
+            <h5 class="card-title">DOÇEV</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-outline-success" (click)="onDonate('docev')" routerLink="/confirmation">Donate 2 trees</a>
+          </div>
+      </div>
+</div>
+<div class="my-5">
+  <button type="button" class="btn btn-lg btn-outline-success m-2" tooltip="TEMA" placement="left"
+    (click)="onDonate('tema')">TEMA</button>
+  <button type="button" class="btn btn-lg btn-outline-success m-2" tooltip="ÇEKÜL" placement="bottom"
+    (click)="onDonate('cekul')">ÇEKÜL</button>
+  <button type="button" class="btn btn-lg btn-outline-success m-2" tooltip="EGE ORMAN VAKFI" placement="bottom"
+    (click)="onDonate('egeorman')">EGE ORMAN VAKFI</button>
+  <button type="button" class="btn btn-lg btn-outline-success m-2" tooltip="DOÇEV" placement="right"
+    (click)="onDonate('docev')">DOÇEV</button>
+</div>

@@ -1,29 +1,103 @@
-<div class="col-sm-10 mx-auto text-left">
+<div id="page1" class="col-sm-8 mx-auto mt-5 text-left" style="height: 350px">
+  <div class="text-center my-5">
+    <fa-icon class="mx-1 fa-2x" [icon]="faPlaneDeparture"></fa-icon>
+    <fa-icon [icon]="faEllipsisH"></fa-icon>
+    <fa-icon class="mx-1 fa-3x " [icon]="faCloud"></fa-icon>
+    <fa-icon [icon]="faEllipsisH"></fa-icon>
+    <fa-icon class="mx-1 fa-2x " [icon]="faPlaneArrival"></fa-icon>
+  </div>
   <div class="form-group">
-    <label for="fromAirportName" i18n="@@FromFlight">Departure from:</label>
-    <input autocomplete="off" id="fromAirportName" [(ngModel)]="fromAirportName" [typeahead]="airports" typeaheadOptionField="Definition"
-      typeaheadGroupField="Country" placeholder="Please type an airport"
+    <label for="fromAirportName" i18n="@@FromFlight">
+      <fa-icon class="mx-1" [icon]="faPlaneDeparture"></fa-icon>Departure from:
+    </label>
+    <input autocomplete="off" id="fromAirportName" [(ngModel)]="fromAirportName" [typeahead]="airports"
+      typeaheadOptionField="Definition" typeaheadGroupField="Country" placeholder="Please type an airport"
       (typeaheadOnSelect)="onFromSelect($event)" [typeaheadScrollable]="true" class="form-control">
   </div>
   <div class="form-group">
-    <label for="toAirportName" i18n="@@ToFlight">Arrival to:</label>
-    <input autocomplete="off" id="toAirportName" [(ngModel)]="toAirportName" [typeahead]="airports" typeaheadOptionField="Definition"
-      typeaheadGroupField="Country" placeholder="Please type an airport"
+    <label for="toAirportName" i18n="@@ToFlight">
+      <fa-icon class="mx-1" [icon]="faPlaneArrival"></fa-icon>Arrival to:
+    </label>
+    <input autocomplete="off" id="toAirportName" [(ngModel)]="toAirportName" [typeahead]="airports"
+      typeaheadOptionField="Definition" typeaheadGroupField="Country" placeholder="Please type an airport"
       (typeaheadOnSelect)="onToSelect($event)" [typeaheadScrollable]="true" class="form-control">
   </div>
-  <div class="form-group form-check">
-    <input type="checkbox" class="form-check-input" id="return" [(ngModel)]="isReturnTrip" (change)="onReturnSelect()">
-    <label class="form-check-label" for="return" i18n="@@IsReturnTrip">Return trip</label>
+</div>
+
+<div id="page2" class="col-sm-8 mx-auto my-5 py-5 text-left" style="height: 700px">
+  <div class="my-5" [hidden]="!distanceInKm">
+    <div id="extraQuestions">
+      <div class="form-row align-items-center">
+        <div class="col-auto">
+          <label for="peopleCount" class="col-form-label">
+            <fa-icon class="mx-1" [icon]="faUsers"></fa-icon>How many people?
+          </label>
+        </div>
+        <div class="col-auto">
+          <rating [max]="10" [(ngModel)]="peopleCount" [customTemplate]="t" (click)="onParameterChange()"
+            (keyup)="onParameterChange()"></rating>
+          <ng-template #t let-index="index" let-value="value">
+            <fa-icon [icon]="index < value ? faUser : faUser" class="{{index < value ? 'white': 'gray'}}"></fa-icon>
+          </ng-template>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-check-label" for="return" i18n="@@IsReturnTrip">
+          <fa-icon class="mx-1" [icon]="faExchangeAlt"></fa-icon>Return trip
+        </label>
+        <input type="checkbox" class="form-check-input" id="return" [(ngModel)]="isReturnTrip"
+          (change)="onParameterChange()">
+      </div>
+      <div class="form-group">
+        <label class="form-check-label" for="business" i18n="@@IsBusinessTrip">
+          <fa-icon class="mx-1" [icon]="faBriefcase"></fa-icon>Business class
+        </label>
+        <input type="checkbox" class="form-check-input" id="business" [(ngModel)]="isBusinessTrip"
+          (change)="onParameterChange()">
+      </div>
+    </div>
+
+    <div id="results" class="mt-5">
+      <div class="border">
+        <div class="text-center my-2">
+          <div>
+            <fa-icon class="mx-1" [icon]="faEllipsisH"></fa-icon>
+          </div>
+          <div>Total distance</div>
+          <div *ngIf="showDistanceInKm">{{distanceInKm | number}} km</div>
+          <div *ngIf="showDistanceInMiles">{{distanceInMiles | number}} miles</div>
+        </div>
+        <div class="text-center my-2" [hidden]="!emission">
+          <div>
+            <fa-icon class="mx-1" [icon]="faCloud"></fa-icon>
+          </div>
+          <div>Total CO<sub>2</sub> emission</div>
+          <div>{{emission | number}} kg</div>
+        </div>
+        <div class="text-center my-2">
+          <div>
+            <span *ngFor="let tree of treesToDonateArr">
+              <fa-icon class="mx-1 your-tree" [icon]="faTree"></fa-icon>
+            </span>
+          </div>
+          <div>Total trees to offset</div>
+          <div style="color: greenyellow">{{treesToDonate}}</div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="text-center my-3">
+      <button (click)="donate()" class="btn btn-lg btn-secondary">
+        Donate now
+      </button>
+    </div>
   </div>
+
 </div>
 
-<div class="my-5 text-center" [hidden]="!distance">
-  <span>Total distance: </span>
-  <span>{{distance}} </span>
-  <span *ngIf="distanceIsKm">km</span>
-  <span *ngIf="distanceIsMiles">miles</span>
-</div>
-
-<div class="my-5" [hidden]="!distance">
-  <a i18n="@@FCalcLookForest" routerLink="/forest" class="btn btn-lg btn-secondary">Have a look at our forest!</a>
+<div id="page3" class="mx-auto mt-5" style="height: 500px">
+  <div class="my-5" [hidden]="!isDonateDecided">
+    <app-donate></app-donate>
+  </div>
 </div>
