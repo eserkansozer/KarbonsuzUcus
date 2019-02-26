@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-donate',
@@ -7,6 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DonateComponent implements OnInit {
 
+  @Input() treeCount: number;
+  perTreeFeeTema = 10;
+  perTreeFeeCekul = 13;
+  perTreeFeeEgeOrman = 10;
+  perTreeFeeDocev = 10;
+
   constructor() { }
 
   ngOnInit() {
@@ -14,7 +20,7 @@ export class DonateComponent implements OnInit {
 
   onDonate(charity) {
     let urlBase: string;
-    let parameters = 'kaynak=sifirkarbon&adet=5';
+    const parameters = `kaynak=sifirkarbon&adet=${this.treeCount}`;
     switch (charity) {
       case 'tema':
         urlBase = 'https://online.tema.org.tr/web_14966_1/member_panel_company.aspx?support_id=8&';

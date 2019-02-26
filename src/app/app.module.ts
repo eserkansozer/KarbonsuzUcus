@@ -56,7 +56,6 @@ import { ConfirmationComponent } from './confirmation/confirmation.component';
           {path: 'forest', component: ForestComponent},
           {path: 'about', component: Co2InfoComponent},
           {path: 'contact', component: ContactComponent},
-          {path: 'donate', component: DonateComponent},
           {path: 'confirmation', component: ConfirmationComponent},
           {path: '**', component: NotFoundComponent}
         ]

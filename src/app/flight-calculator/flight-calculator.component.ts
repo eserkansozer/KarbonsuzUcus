@@ -1,10 +1,10 @@
 import { AirportModel } from './../Models/AirportModel';
-import { Component, OnInit, Inject, LOCALE_ID, EventEmitter, isDevMode, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, Inject, LOCALE_ID, EventEmitter, isDevMode} from '@angular/core';
 import { TypeaheadMatch } from 'ngx-bootstrap/typeahead/public_api';
 import { HttpClient } from '@angular/common/http';
 
 // tslint:disable-next-line:max-line-length
-import { faPlaneDeparture, faPlaneArrival, faEllipsisH, faCloud, faTree, faExchangeAlt, faBriefcase, faUsers, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faPlaneDeparture, faPlaneArrival, faEllipsisH, faCloud, faTree, faExchangeAlt, faBriefcase, faUsers, faUser, faPlane } from '@fortawesome/free-solid-svg-icons';
 import { Constants } from '../Common/Constants';
 
 declare let $: any;
@@ -44,6 +44,7 @@ export class FlightCalculatorComponent implements OnInit {
   faBriefcase = faBriefcase;
   faUsers = faUsers;
   faUser = faUser;
+  faPlane = faPlane;
   userSelection = new Array(10);
   treesToDonateArr: any[];
   activePage: string;
@@ -69,15 +70,15 @@ export class FlightCalculatorComponent implements OnInit {
       this.calculateTrees();
     });
 
-    // if (isDevMode) {
-    //   // tslint:disable-next-line:max-line-length
-    //   this.selectedFromAirport = new AirportModel('Adnan Menderes Intl ', 'Izmir', 'Turkey', 'ADB', 27.156999588, 38.2924003601);
-    //   this.fromAirportName = this.selectedFromAirport.Definition;
-    //   this.selectedToAirport =
-    //   new AirportModel('London Gatwick ', 'London', 'United Kingdom', 'LGW', -0.19027799367904663, 51.148101806640625);
-    //   this.toAirportName = this.selectedToAirport.Definition;
-    //   this.onDistanceParameterChange();
-    // } 
+    if (isDevMode) {
+      // tslint:disable-next-line:max-line-length
+      this.selectedFromAirport = new AirportModel('Adnan Menderes Intl ', 'Izmir', 'Turkey', 'ADB', 27.156999588, 38.2924003601);
+      this.fromAirportName = this.selectedFromAirport.Definition;
+      this.selectedToAirport =
+      new AirportModel('London Gatwick ', 'London', 'United Kingdom', 'LGW', -0.19027799367904663, 51.148101806640625);
+      this.toAirportName = this.selectedToAirport.Definition;
+      this.onDistanceParameterChange();
+    }
   }
 
   ngOnInit() {
@@ -116,6 +117,19 @@ export class FlightCalculatorComponent implements OnInit {
 
   onDonationDecided() {
     this.activePage = 'page4';
+  }
+
+  onReset() {
+    this.fromAirportName = null;
+    this.toAirportName = null;
+    this.selectedFromAirport = null;
+    this.selectedToAirport = null;
+    this.peopleCount = 1;
+    this.isBusinessTrip = false;
+    this.distanceInKm = null;
+    this.distanceInMiles = null;
+    this.emission = null;
+    this.activePage = 'page1';
   }
 
   calculateDistance() {
