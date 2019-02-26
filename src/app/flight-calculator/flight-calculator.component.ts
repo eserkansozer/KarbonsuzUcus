@@ -52,6 +52,7 @@ export class FlightCalculatorComponent implements OnInit {
   constructor(private http: HttpClient, @Inject(LOCALE_ID) locale: string) {
     this.activePage = 'page1';
     this.peopleCount = 1;
+    this.isReturnTrip = true;
     this.showDistanceInKm = locale !== 'en-US';
     this.showDistanceInMiles = locale === 'en-US';
 
@@ -132,7 +133,7 @@ export class FlightCalculatorComponent implements OnInit {
     this.activePage = 'page1';
   }
 
-  calculateDistance() {
+  private calculateDistance() {
     if (this.selectedFromAirport && this.selectedToAirport) {
       const p1 = new LatLon(Dms.parseDMS(this.selectedFromAirport.Lat), Dms.parseDMS(this.selectedFromAirport.Lon));
       const p2 = new LatLon(Dms.parseDMS(this.selectedToAirport.Lat), Dms.parseDMS(this.selectedToAirport.Lon));

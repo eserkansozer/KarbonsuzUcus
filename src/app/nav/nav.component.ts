@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { faTree } from '@fortawesome/free-solid-svg-icons';
+import { faTree, faPlane } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-nav',
@@ -10,6 +10,7 @@ import { faTree } from '@fortawesome/free-solid-svg-icons';
 export class NavComponent implements OnInit {
 
   faTree = faTree;
+  faPlane = faPlane;
 
   constructor(private router: Router) { }
 

@@ -1,6 +1,9 @@
 <div class="inner container d-flex flex-column flex-md-row justify-content-between">
   <h2 (click)="onHomeClick()" class="masthead-brand">
-    <fa-icon [icon]="faTree"></fa-icon>
+    <div style="display: inline-flex">
+    <fa-icon class="fa-2x ml-2" [icon]="faTree"></fa-icon>
+    <fa-icon class="fa-sm" [icon]="faPlane" style="transform: rotate(-20deg); float: right"></fa-icon>
+  </div>
     <span i18n="@@NavMainheader" class="masthead-brand__text">Offset My Carbon</span>
   </h2>
   <nav class="nav nav-masthead justify-content-center">
