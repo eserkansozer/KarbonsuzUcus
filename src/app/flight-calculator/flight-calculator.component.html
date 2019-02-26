@@ -1,12 +1,12 @@
-<div id="page1" class="col-sm-8 mx-auto mt-5 text-left" style="height: 350px">
-  <div class="text-center my-5">
+<div id="page1" class="mx-auto h-100 text-center" [hidden]="activePage != 'page1'">
+  <!-- <div class="mt-2 mb-5">
     <fa-icon class="mx-1 fa-2x" [icon]="faPlaneDeparture"></fa-icon>
     <fa-icon [icon]="faEllipsisH"></fa-icon>
     <fa-icon class="mx-1 fa-3x " [icon]="faCloud"></fa-icon>
     <fa-icon [icon]="faEllipsisH"></fa-icon>
     <fa-icon class="mx-1 fa-2x " [icon]="faPlaneArrival"></fa-icon>
-  </div>
-  <div class="form-group">
+  </div> -->
+  <div class="form-group col-sm-8 mx-auto text-left">
     <label for="fromAirportName" i18n="@@FromFlight">
       <fa-icon class="mx-1" [icon]="faPlaneDeparture"></fa-icon>Departure from:
     </label>
@@ -14,7 +14,7 @@
       typeaheadOptionField="Definition" typeaheadGroupField="Country" placeholder="Please type an airport"
       (typeaheadOnSelect)="onFromSelect($event)" [typeaheadScrollable]="true" class="form-control">
   </div>
-  <div class="form-group">
+  <div class="form-group col-sm-8 mx-auto text-left">
     <label for="toAirportName" i18n="@@ToFlight">
       <fa-icon class="mx-1" [icon]="faPlaneArrival"></fa-icon>Arrival to:
     </label>
@@ -22,82 +22,109 @@
       typeaheadOptionField="Definition" typeaheadGroupField="Country" placeholder="Please type an airport"
       (typeaheadOnSelect)="onToSelect($event)" [typeaheadScrollable]="true" class="form-control">
   </div>
+  <div class="form-group col-sm-8 mx-auto text-left">
+    <label class="form-check-label" for="return" i18n="@@IsReturnTrip">
+      <fa-icon class="mx-1" [icon]="faExchangeAlt"></fa-icon>Return trip
+    </label>
+    <input type="checkbox" class="form-check-input" id="return" [(ngModel)]="isReturnTrip"
+      (change)="onDistanceParameterChange()">
+  </div>
+  <div class="form-group text-center m-2 col-sm-8 mx-auto my-5" [hidden]="!distanceInKm">
+    <div class="border p-3" style="border-style: dashed!important">
+      <div>
+          <span *ngFor="let tree of treesToDonateArr">
+              <fa-icon class="mx-1" [icon]="faEllipsisH"></fa-icon>
+            </span>
+      </div>
+      <h4>Total distance</h4>
+      <div class="display-4" *ngIf="showDistanceInKm">{{distanceInKm | number}}</div>
+      <span *ngIf="showDistanceInKm">km</span>
+      <div class="display-4" *ngIf="showDistanceInMiles">{{distanceInMiles | number}}</div>
+      <span *ngIf="distanceInMiles">miles</span>
+    </div>
+  </div>
+
+  <div class="text-center my-5">
+    <button (click)="onCalculationDecided()" class="btn btn-lg btn-secondary" [disabled]="!distanceInKm">
+      Calculate CO<sub>2</sub> emission
+    </button>
+  </div>
+
 </div>
 
-<div id="page2" class="col-sm-8 mx-auto my-5 py-5 text-left" style="height: 700px">
-  <div class="my-5" [hidden]="!distanceInKm">
-    <div id="extraQuestions">
+<div id="page2" class="mx-auto h-100 text-center" [hidden]="activePage != 'page2'">
+  <div [hidden]="!distanceInKm">
+    <div id="extraQuestions" class="form-group col-sm-8 mx-auto text-left">
       <div class="form-row align-items-center">
         <div class="col-auto">
           <label for="peopleCount" class="col-form-label">
-            <fa-icon class="mx-1" [icon]="faUsers"></fa-icon>How many people?
+            <fa-icon class="mx-1" [icon]="faUsers"></fa-icon>How many passengers?
           </label>
         </div>
         <div class="col-auto">
-          <rating [max]="10" [(ngModel)]="peopleCount" [customTemplate]="t" (click)="onParameterChange()"
-            (keyup)="onParameterChange()"></rating>
+          <rating [max]="10" [(ngModel)]="peopleCount" [customTemplate]="t" (click)="onTripParameterChange()"
+            (keyup)="onTripParameterChange()"></rating>
           <ng-template #t let-index="index" let-value="value">
             <fa-icon [icon]="index < value ? faUser : faUser" class="{{index < value ? 'white': 'gray'}}"></fa-icon>
           </ng-template>
         </div>
       </div>
       <div class="form-group">
-        <label class="form-check-label" for="return" i18n="@@IsReturnTrip">
-          <fa-icon class="mx-1" [icon]="faExchangeAlt"></fa-icon>Return trip
-        </label>
-        <input type="checkbox" class="form-check-input" id="return" [(ngModel)]="isReturnTrip"
-          (change)="onParameterChange()">
-      </div>
-      <div class="form-group">
         <label class="form-check-label" for="business" i18n="@@IsBusinessTrip">
           <fa-icon class="mx-1" [icon]="faBriefcase"></fa-icon>Business class
         </label>
         <input type="checkbox" class="form-check-input" id="business" [(ngModel)]="isBusinessTrip"
-          (change)="onParameterChange()">
+          (change)="onTripParameterChange()">
       </div>
     </div>
 
-    <div id="results" class="mt-5">
-      <div class="border">
-        <div class="text-center my-2">
-          <div>
-            <fa-icon class="mx-1" [icon]="faEllipsisH"></fa-icon>
-          </div>
-          <div>Total distance</div>
-          <div *ngIf="showDistanceInKm">{{distanceInKm | number}} km</div>
-          <div *ngIf="showDistanceInMiles">{{distanceInMiles | number}} miles</div>
-        </div>
-        <div class="text-center my-2" [hidden]="!emission">
-          <div>
-            <fa-icon class="mx-1" [icon]="faCloud"></fa-icon>
-          </div>
-          <div>Total CO<sub>2</sub> emission</div>
-          <div>{{emission | number}} kg</div>
-        </div>
-        <div class="text-center my-2">
+    <div id="results" class="text-center col-sm-8 mx-auto mt-5">
+      <div class="border my-3 p-3" style="border-style: dashed!important">
+        <div class="text-center" [hidden]="!emission">
           <div>
             <span *ngFor="let tree of treesToDonateArr">
-              <fa-icon class="mx-1 your-tree" [icon]="faTree"></fa-icon>
+              <fa-icon class="mx-1" [icon]="faCloud"></fa-icon>
             </span>
+
           </div>
-          <div>Total trees to offset</div>
-          <div style="color: greenyellow">{{treesToDonate}}</div>
+          <h4>Total CO<sub>2</sub> emission</h4>
+          <div class="display-4">{{emission | number}}</div>
+          <h4>kg</h4>
         </div>
       </div>
     </div>
 
-
-    <div class="text-center my-3">
-      <button (click)="donate()" class="btn btn-lg btn-secondary">
-        Donate now
+    <div class="col-sm-8 text-center mx-auto my-3">
+      <button (click)="onTreesDecided()" class="btn btn-lg btn-secondary">
+        Calculate trees
       </button>
     </div>
   </div>
 
 </div>
 
-<div id="page3" class="mx-auto mt-5" style="height: 500px">
-  <div class="my-5" [hidden]="!isDonateDecided">
+<div id="page3" class="mx-auto h-100" [hidden]="activePage != 'page3'">
+  <div class="col-sm-8 border mx-auto my-3 p-3" style="border-style: dashed!important">
+    <div class="text-center">
+      <div>
+        <span *ngFor="let tree of treesToDonateArr">
+          <fa-icon class="mx-1 your-tree" [icon]="faTree"></fa-icon>
+        </span>
+      </div>
+      <h4>To offset this amount you need</h4>
+      <div class="display-2" style="color: greenyellow">{{treesToDonate}}</div>
+      <h4>trees</h4>
+    </div>
+  </div>
+  <div class="col-sm-8 text-center mx-auto my-3">
+      <button (click)="onDonationDecided()" class="btn btn-lg btn-secondary">
+        Donate now
+      </button>
+    </div>
+</div>
+
+<div id="page4" class="mx-auto h-100" [hidden]="activePage != 'page4'">
+  <div class="my-5">
     <app-donate></app-donate>
   </div>
 </div>

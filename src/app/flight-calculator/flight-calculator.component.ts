@@ -28,12 +28,13 @@ export class FlightCalculatorComponent implements OnInit {
   peopleCount: number;
   distanceInKm: number;
   distanceInMiles: number;
-  isDonateDecided: boolean;
   showDistanceInKm: boolean;
   showDistanceInMiles: boolean;
   emission: number;
   treesToDonate: number;
-  refresh: EventEmitter<any> = new EventEmitter();
+  distanceRefresh: EventEmitter<any> = new EventEmitter();
+  emissionRefresh: EventEmitter<any> = new EventEmitter();
+  treesRefresh: EventEmitter<any> = new EventEmitter();
   faPlaneDeparture = faPlaneDeparture;
   faPlaneArrival = faPlaneArrival;
   faEllipsisH = faEllipsisH;
@@ -45,15 +46,26 @@ export class FlightCalculatorComponent implements OnInit {
   faUser = faUser;
   userSelection = new Array(10);
   treesToDonateArr: any[];
+  activePage: string;
 
   constructor(private http: HttpClient, @Inject(LOCALE_ID) locale: string) {
+    this.activePage = 'page1';
     this.peopleCount = 1;
     this.showDistanceInKm = locale !== 'en-US';
     this.showDistanceInMiles = locale === 'en-US';
 
-    this.refresh.subscribe(() => {
+    this.distanceRefresh.subscribe(() => {
       this.calculateDistance();
       this.calculateEmission();
+      this.calculateTrees();
+    });
+
+    this.emissionRefresh.subscribe(() => {
+      this.calculateEmission();
+      this.calculateTrees();
+    });
+
+    this.treesRefresh.subscribe(() => {
       this.calculateTrees();
     });
 
@@ -61,11 +73,11 @@ export class FlightCalculatorComponent implements OnInit {
     //   // tslint:disable-next-line:max-line-length
     //   this.selectedFromAirport = new AirportModel('Adnan Menderes Intl ', 'Izmir', 'Turkey', 'ADB', 27.156999588, 38.2924003601);
     //   this.fromAirportName = this.selectedFromAirport.Definition;
-    //   // tslint:disable-next-line:max-line-length
-    //   this.selectedToAirport = new AirportModel('London Gatwick ', 'London', 'United Kingdom', 'LGW', -0.19027799367904663, 51.148101806640625);
+    //   this.selectedToAirport =
+    //   new AirportModel('London Gatwick ', 'London', 'United Kingdom', 'LGW', -0.19027799367904663, 51.148101806640625);
     //   this.toAirportName = this.selectedToAirport.Definition;
-    //   this.onParameterChange();
-    // }
+    //   this.onDistanceParameterChange();
+    // } 
   }
 
   ngOnInit() {
@@ -76,19 +88,34 @@ export class FlightCalculatorComponent implements OnInit {
 
   onFromSelect(event: TypeaheadMatch): void {
     this.selectedFromAirport = event.item;
-    this.onParameterChange();
+    this.onDistanceParameterChange();
   }
 
   onToSelect(event: TypeaheadMatch): void {
     this.selectedToAirport = event.item;
-    this.onParameterChange();
-    $('html, body').animate({
-        scrollTop: ($('#page2').offset().top)
-      }, 2000);
+    this.onDistanceParameterChange();
   }
 
-  onParameterChange() {
-    this.refresh.emit();
+  onDistanceParameterChange() {
+    this.distanceRefresh.emit();
+  }
+
+  onTripParameterChange() {
+    this.emissionRefresh.emit();
+  }
+
+  onCalculationDecided() {
+    this.emissionRefresh.emit();
+    this.activePage = 'page2';
+  }
+
+  onTreesDecided() {
+    this.treesRefresh.emit();
+    this.activePage = 'page3';
+  }
+
+  onDonationDecided() {
+    this.activePage = 'page4';
   }
 
   calculateDistance() {
@@ -110,22 +137,15 @@ export class FlightCalculatorComponent implements OnInit {
     }
   }
 
-  calculateEmission() {
+  private calculateEmission() {
     this.emission = parseFloat((this.distanceInKm * this.peopleCount
       * Constants.EMISSSION_PER_KM
       * (this.isBusinessTrip ? Constants.BUSINESS_CLASS_FACTOR : 1))
       .toPrecision(4));
   }
 
-  calculateTrees() {
+  private calculateTrees() {
     this.treesToDonate = Math.ceil(this.emission * Constants.TREES_PER_KG_EMISSION);
     this.treesToDonateArr = new Array(this.treesToDonate);
-  }
-
-  donate() {
-    this.isDonateDecided = true;
-    $('html, body').animate({
-        scrollTop: ($('#page3').offset().top)
-      }, 2000);
   }
 }
