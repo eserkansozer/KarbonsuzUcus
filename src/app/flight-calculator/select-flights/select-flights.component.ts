@@ -17,6 +17,7 @@ declare let Dms: any; // This variable is created externally elsewhere. This is 
 export class SelectFlightsComponent implements OnInit {
   @Output() distanceRefresh = new EventEmitter();
   @Output() distanceSubmit = new EventEmitter();
+
   distanceInKm: number;
   distanceInMiles: number;
   showDistanceInKm: boolean;
@@ -27,12 +28,21 @@ export class SelectFlightsComponent implements OnInit {
   selectedFromAirport: AirportModel;
   selectedToAirport: AirportModel;
   isReturnTrip: boolean;
+
   faPlaneDeparture = faPlaneDeparture;
   faPlaneArrival = faPlaneArrival;
   faEllipsisH = faEllipsisH;
   faExchangeAlt = faExchangeAlt;
   faPlane = faPlane;
   faCloud = faCloud;
+
+
+  public get distanceUnits(): Array<any> {
+    if (!this.distanceInMiles) {
+     return new Array(0);
+    }
+    return new Array(Math.floor(this.distanceInMiles / 1000));
+  }
 
   constructor(private http: HttpClient, @Inject(LOCALE_ID) locale: string) {
     this.showDistanceInKm = locale !== 'en-US';
@@ -43,12 +53,12 @@ export class SelectFlightsComponent implements OnInit {
       this.selectedFromAirport = new AirportModel('Adnan Menderes Intl ', 'Izmir', 'Turkey', 'ADB', 27.156999588, 38.2924003601);
       this.fromAirportName = this.selectedFromAirport.Definition;
       this.selectedToAirport =
-      new AirportModel('London Gatwick ', 'London', 'United Kingdom', 'LGW', -0.19027799367904663, 51.148101806640625);
+        new AirportModel('London Gatwick ', 'London', 'United Kingdom', 'LGW', -0.19027799367904663, 51.148101806640625);
       this.toAirportName = this.selectedToAirport.Definition;
       this.calculateDistance();
     }
+  }
 
-   }
 
   ngOnInit() {
     this.http.get('assets/airports.json').subscribe(json => {
@@ -70,11 +80,11 @@ export class SelectFlightsComponent implements OnInit {
     this.distanceRefresh.emit();
   }
 
-  onSubmit(){
+  onSubmit() {
     this.distanceSubmit.emit();
   }
 
-  calculateDistance() {
+  calculateDistance(): number {
     if (this.selectedFromAirport && this.selectedToAirport) {
       const p1 = new LatLon(Dms.parseDMS(this.selectedFromAirport.Lat), Dms.parseDMS(this.selectedFromAirport.Lon));
       const p2 = new LatLon(Dms.parseDMS(this.selectedToAirport.Lat), Dms.parseDMS(this.selectedToAirport.Lon));
@@ -91,6 +101,7 @@ export class SelectFlightsComponent implements OnInit {
       this.distanceInKm = null;
       this.distanceInMiles = null;
     }
+    return this.distanceInKm;
   }
 
 }

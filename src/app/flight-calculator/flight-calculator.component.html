@@ -3,55 +3,7 @@
 </div>
 
 <div id="page2" class="mx-auto h-100 text-center" [hidden]="activePage != 'page2'">
-  <div id="results" class="text-center mx-auto mt-5">
-    <div class="border my-3 p-3">
-      <div class="text-center" [hidden]="!emission">
-        <div>
-            <fa-icon class="mx-1" [icon]="faPlane"></fa-icon>
-          <span *ngFor="let tree of treesToDonateArr">
-            <fa-icon class="mx-1" [icon]="faCloud"></fa-icon>
-          </span>
-          <fa-icon class="mx-1" [icon]="faPlane"></fa-icon>
-        </div>
-        <h4>Total CO<sub>2</sub> emission</h4>
-        <div class="display-4">{{emission | number}}</div>
-        <h4>kg</h4>
-      </div>
-    </div>
-  </div>
-  <div id="extraQuestions" class="form-group mx-auto text-left">
-    <div class="form-row align-items-center">
-      <div class="col-auto">
-        <label for="peopleCount" class="col-form-label">
-          <fa-icon class="mr-1" [icon]="faUsers"></fa-icon>How many passengers?
-        </label>
-      </div>
-      <div class="col-auto">
-        <rating [max]="10" [(ngModel)]="peopleCount" [customTemplate]="t" (click)="onTripParameterChange()"
-          (keyup)="onTripParameterChange()"></rating>
-        <ng-template #t let-index="index" let-value="value">
-          <fa-icon [icon]="index < value ? faUser : faUser" class="{{index < value ? 'white': 'gray'}}"></fa-icon>
-        </ng-template>
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="form-check-label" for="business" i18n="@@IsBusinessTrip">
-        <fa-icon class="mr-1" [icon]="faBriefcase"></fa-icon>Business class
-      </label>
-      <input type="checkbox" class="form-check-input" id="business" [(ngModel)]="isBusinessTrip"
-        (change)="onTripParameterChange()">
-    </div>
-  </div>
-
-  <div class="text-center mx-auto my-3">
-    <button (click)="onTreesDecided()" class="btn btn-lg btn-secondary">
-      Calculate trees
-    </button>
-  </div>
-  <div class="text-center mx-auto my-3">
-      <button type="button" class="btn btn-link" (click)="onReset()" >Reset</button>
-  </div>
-
+  <app-calculate-emission [distanceInKm]="distanceInKm" (emissionRefresh)="onRefreshEmission()" (emissionSubmit)="onEmissionSubmitted()" (reset)="onReset()"></app-calculate-emission>
 </div>
 
 <div id="page3" class="mx-auto h-100" [hidden]="activePage != 'page3'">
@@ -73,7 +25,7 @@
     </button>
   </div>
   <div class="text-center mx-auto my-3">
-      <button type="button" class="btn btn-link" (click)="onReset()" >Reset</button>
+      <button type="button" class="btn btn-link" (click)="onReset()">Reset</button>
   </div>
 </div>
 

@@ -153,3 +153,7 @@ body {
       margin-left: 0.40rem;
       margin-top: 0.35rem;
     }
+
+    .gray{
+      color: gray;
+    }
