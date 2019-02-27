@@ -59,7 +59,7 @@ body {
   margin-bottom: 0;
 }
 
-@media (min-width: 1200px) { 
+@media (min-width: 1200px) {
   .masthead-brand {
     margin-right: 30px;
   }
@@ -143,4 +143,13 @@ body {
 
       .footer {
         bottom: 0;
+    }
+
+    .border{
+      border-style: dashed!important;
+    }
+
+    .form-check-input {
+      margin-left: 0.40rem;
+      margin-top: 0.35rem;
     }

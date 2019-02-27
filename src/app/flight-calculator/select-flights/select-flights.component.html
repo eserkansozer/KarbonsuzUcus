@@ -1,0 +1,53 @@
+  <!-- <div class="mt-2 mb-5">
+    <fa-icon class="mx-1 fa-2x" [icon]="faPlaneDeparture"></fa-icon>
+    <fa-icon [icon]="faEllipsisH"></fa-icon>
+    <fa-icon class="mx-1 fa-3x " [icon]="faCloud"></fa-icon>
+    <fa-icon [icon]="faEllipsisH"></fa-icon>
+    <fa-icon class="mx-1 fa-2x " [icon]="faPlaneArrival"></fa-icon>
+  </div> -->
+  <div class="form-group text-center m-2 mx-auto my-5" [hidden]="!distanceInKm">
+    <div class="border p-3">
+      <div>
+        <fa-icon class="mx-1" [icon]="faPlane"></fa-icon>
+        <span *ngFor="let tree of treesToDonateArr">
+          <fa-icon class="mx-1" [icon]="faEllipsisH"></fa-icon>
+        </span>
+        <fa-icon class="mx-1" [icon]="faPlane"></fa-icon>
+      </div>
+      <h4>Total distance</h4>
+      <div class="display-4" *ngIf="showDistanceInKm">{{distanceInKm | number}}</div>
+      <span *ngIf="showDistanceInKm">km</span>
+      <div class="display-4" *ngIf="showDistanceInMiles">{{distanceInMiles | number}}</div>
+      <span *ngIf="distanceInMiles">miles</span>
+    </div>
+  </div>
+
+  <div class="form-group mx-auto text-left">
+    <label for="fromAirportName" i18n="@@FromFlight">
+      <fa-icon class="mx-1" [icon]="faPlaneDeparture"></fa-icon>Departure from:
+    </label>
+    <input autocomplete="off" id="fromAirportName" [(ngModel)]="fromAirportName" [typeahead]="airports"
+      typeaheadOptionField="Definition" typeaheadGroupField="Country" placeholder="Please type an airport"
+      (typeaheadOnSelect)="onFromSelect($event)" [typeaheadScrollable]="true" class="form-control">
+  </div>
+  <div class="form-group mx-auto text-left">
+    <label for="toAirportName" i18n="@@ToFlight">
+      <fa-icon class="mx-1" [icon]="faPlaneArrival"></fa-icon>Arrival to:
+    </label>
+    <input autocomplete="off" id="toAirportName" [(ngModel)]="toAirportName" [typeahead]="airports"
+      typeaheadOptionField="Definition" typeaheadGroupField="Country" placeholder="Please type an airport"
+      (typeaheadOnSelect)="onToSelect($event)" [typeaheadScrollable]="true" class="form-control">
+  </div>
+  <div class="form-group mx-auto text-left">
+    <label class="form-check-label" for="return" i18n="@@IsReturnTrip">
+      <fa-icon class="mx-1" [icon]="faExchangeAlt"></fa-icon>Return trip
+    </label>
+    <input type="checkbox" class="form-check-input" id="return" [(ngModel)]="isReturnTrip"
+      (change)="onDistanceParameterChange()">
+  </div>
+
+  <div class="text-center my-5">
+    <button (click)="onSubmit()" class="btn btn-lg btn-secondary" [disabled]="!distanceInKm">
+      Calculate CO<sub>2</sub> emission
+    </button>
+  </div>

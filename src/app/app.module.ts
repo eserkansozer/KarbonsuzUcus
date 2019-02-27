@@ -1,3 +1,4 @@
+import { SelectFlightsComponent } from './flight-calculator/select-flights/select-flights.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -36,7 +37,8 @@ import { ConfirmationComponent } from './confirmation/confirmation.component';
       NotFoundComponent,
       ForestComponent,
       DonateComponent,
-      ConfirmationComponent
+      ConfirmationComponent,
+      SelectFlightsComponent
    ],
    imports: [
       BrowserModule,
