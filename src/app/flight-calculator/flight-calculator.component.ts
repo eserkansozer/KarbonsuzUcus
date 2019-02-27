@@ -1,10 +1,7 @@
-import { faTree } from '@fortawesome/free-solid-svg-icons';
+import { Component, OnInit, ViewChild} from '@angular/core';
+import { CalculateTreesComponent } from './calculate-trees/calculate-trees.component';
 import { CalculateEmissionComponent } from './calculate-emission/calculate-emission.component';
-import { Component, OnInit, EventEmitter, ViewChild} from '@angular/core';
-
-import { Constants } from '../Common/Constants';
 import { SelectFlightsComponent } from './select-flights/select-flights.component';
-
 
 @Component({
   selector: 'app-flight-calculator',
@@ -12,15 +9,11 @@ import { SelectFlightsComponent } from './select-flights/select-flights.componen
   styleUrls: ['./flight-calculator.component.css']
 })
 export class FlightCalculatorComponent implements OnInit {
-  treesRefresh = new EventEmitter();
-  treesToDonate: number;
-  treesToDonateArr: any[];
 
   activePage: string;
   distanceInKm: number;
   emission: number;
-
-  faTree = faTree;
+  treesToDonate: number;
 
   @ViewChild(SelectFlightsComponent)
   private selectFlightsComponent: SelectFlightsComponent;
@@ -28,12 +21,11 @@ export class FlightCalculatorComponent implements OnInit {
   @ViewChild(CalculateEmissionComponent)
   private calculateEmissionComponent: CalculateEmissionComponent;
 
+  @ViewChild(CalculateTreesComponent)
+  private calculateTreesComponent: CalculateTreesComponent;
+
   constructor() {
     this.activePage = 'page1';
-
-    this.treesRefresh.subscribe(() => {
-      this.calculateTrees();
-    });
   }
 
   ngOnInit() {  }
@@ -44,12 +36,20 @@ export class FlightCalculatorComponent implements OnInit {
   }
 
   onEmissionSubmitted() {
-    this.treesRefresh.emit();
+    this.treesToDonate = this.calculateTreesComponent.calculateTrees();
     this.activePage = 'page3';
   }
 
-  onDonationDecided() {
+  onTreesSubmitted() {
     this.activePage = 'page4';
+  }
+
+  onRefreshDistance() {
+    this.distanceInKm = this.selectFlightsComponent.calculateDistance();
+  }
+
+  onRefreshEmission() {
+    this.emission = this.calculateEmissionComponent.calculateEmission();
   }
 
   onReset() {
@@ -63,19 +63,5 @@ export class FlightCalculatorComponent implements OnInit {
     this.selectFlightsComponent.distanceInMiles = null;
     this.calculateEmissionComponent.emission = null;
     this.activePage = 'page1';
-  }
-
-  onRefreshDistance() {
-    this.distanceInKm = this.selectFlightsComponent.calculateDistance();
-  }
-
-  onRefreshEmission() {
-    this.emission = this.calculateEmissionComponent.calculateEmission();
-  }
-
-
-  private calculateTrees() {
-    this.treesToDonate = Math.ceil(this.calculateEmissionComponent.emission * Constants.TREES_PER_KG_EMISSION);
-    this.treesToDonateArr = new Array(this.treesToDonate);
   }
 }

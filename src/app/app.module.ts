@@ -1,3 +1,4 @@
+import { CalculateTreesComponent } from './flight-calculator/calculate-trees/calculate-trees.component';
 import { CalculateEmissionComponent } from './flight-calculator/calculate-emission/calculate-emission.component';
 import { SelectFlightsComponent } from './flight-calculator/select-flights/select-flights.component';
 import { BrowserModule } from '@angular/platform-browser';
@@ -40,7 +41,8 @@ import { ConfirmationComponent } from './confirmation/confirmation.component';
       DonateComponent,
       ConfirmationComponent,
       SelectFlightsComponent,
-      CalculateEmissionComponent
+      CalculateEmissionComponent,
+      CalculateTreesComponent
    ],
    imports: [
       BrowserModule,
