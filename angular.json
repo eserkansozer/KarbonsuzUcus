@@ -73,7 +73,7 @@
               "extractCss": true,
               "namedChunks": false,
               "aot": true,
-              "outputPath": "dist/my-project-tr/",
+              "outputPath": "dist/offset-my-carbon-spa-tr/",
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
