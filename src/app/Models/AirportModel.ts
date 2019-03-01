@@ -20,6 +20,6 @@ export class AirportModel {
   }
 
   get Definition() {
-    return `${this.name.trim()}, ${this.city}, ${this.country} - ${this.IATA}`;
+    return `${this.name.trim()} (${this.IATA}), ${this.city}, ${this.country}`;
   }
 }

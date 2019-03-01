@@ -45,10 +45,12 @@ export class SelectFlightsComponent implements OnInit {
   }
 
   constructor(private http: HttpClient, @Inject(LOCALE_ID) locale: string) {
-    // this.locale = 'tr-TR';
+    this.locale = locale;
     this.showDistanceInKm = locale !== 'en-US';
     this.showDistanceInMiles = locale === 'en-US';
     this.isReturnTrip = true;
+
+    //this.locale = 'tr-TR';
 
     // if (isDevMode) {
     //   this.selectedFromAirport = new AirportModel('Adnan Menderes Intl ', 'Izmir', 'Turkey', 'ADB', 27.156999588, 38.2924003601);
@@ -73,8 +75,11 @@ export class SelectFlightsComponent implements OnInit {
 
         const airportList = json as any;
         this.airports = Array.from(airportList.data.ports as Array<any>,
-          a => new AirportModel(a.port.name, a.city.name, a.country.name, a.code, a.coordinate.lon, a.coordinate.lat));
-
+          a => {
+            if (a.type !== 'city') {
+              return new AirportModel(a.port.name, a.city.name, a.country.name, a.code, a.coordinate.lon, a.coordinate.lat);
+            }
+          });
       });
     }
   }
