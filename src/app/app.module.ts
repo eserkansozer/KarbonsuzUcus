@@ -23,8 +23,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { ForestComponent } from './forest/forest.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RatingModule } from 'ngx-bootstrap/rating';
-import { DonateComponent } from './donate/donate.component';
 import { ConfirmationComponent } from './confirmation/confirmation.component';
+import { DonateComponent } from './flight-calculator/donate/donate.component';
 
 @NgModule({
    declarations: [
