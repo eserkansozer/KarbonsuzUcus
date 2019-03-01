@@ -28,6 +28,7 @@ export class SelectFlightsComponent implements OnInit {
   selectedFromAirport: AirportModel;
   selectedToAirport: AirportModel;
   isReturnTrip: boolean;
+  locale: string;
 
   faPlaneDeparture = faPlaneDeparture;
   faPlaneArrival = faPlaneArrival;
@@ -35,7 +36,6 @@ export class SelectFlightsComponent implements OnInit {
   faExchangeAlt = faExchangeAlt;
   faPlane = faPlane;
   faCloud = faCloud;
-
 
   public get distanceUnits(): Array<any> {
     if (!this.distanceInMiles) {
@@ -45,25 +45,38 @@ export class SelectFlightsComponent implements OnInit {
   }
 
   constructor(private http: HttpClient, @Inject(LOCALE_ID) locale: string) {
+    // this.locale = 'tr-TR';
     this.showDistanceInKm = locale !== 'en-US';
     this.showDistanceInMiles = locale === 'en-US';
     this.isReturnTrip = true;
 
-    if (isDevMode) {
-      this.selectedFromAirport = new AirportModel('Adnan Menderes Intl ', 'Izmir', 'Turkey', 'ADB', 27.156999588, 38.2924003601);
-      this.fromAirportName = this.selectedFromAirport.Definition;
-      this.selectedToAirport =
-        new AirportModel('London Gatwick ', 'London', 'United Kingdom', 'LGW', -0.19027799367904663, 51.148101806640625);
-      this.toAirportName = this.selectedToAirport.Definition;
-      this.calculateDistance();
-    }
+    // if (isDevMode) {
+    //   this.selectedFromAirport = new AirportModel('Adnan Menderes Intl ', 'Izmir', 'Turkey', 'ADB', 27.156999588, 38.2924003601);
+    //   this.fromAirportName = this.selectedFromAirport.Definition;
+    //   this.selectedToAirport =
+    //     new AirportModel('London Gatwick ', 'London', 'United Kingdom', 'LGW', -0.19027799367904663, 51.148101806640625);
+    //   this.toAirportName = this.selectedToAirport.Definition;
+    //   this.calculateDistance();
+    // }
   }
 
 
   ngOnInit() {
-    this.http.get('assets/airports.json').subscribe(json => {
-      this.airports = Array.from(json as Array<any>, a => new AirportModel(a.name, a.city, a.country, a.IATA, a.lon, a.lat));
-    });
+    if (this.locale === 'en-US') {
+      this.http.get('assets/airports.json').subscribe(json => {
+        this.airports = Array.from(json as Array<any>, a => new AirportModel(a.name, a.city, a.country, a.IATA, a.lon, a.lat));
+      });
+    } else {
+      this.http.get('assets/airports-tr.json').subscribe(json => {
+
+        this.airports = Array.from(json as Array<any>, a => new AirportModel(a.name, a.city, a.country, a.IATA, a.lon, a.lat));
+
+        const airportList = json as any;
+        this.airports = Array.from(airportList.data.ports as Array<any>,
+          a => new AirportModel(a.port.name, a.city.name, a.country.name, a.code, a.coordinate.lon, a.coordinate.lat));
+
+      });
+    }
   }
 
   onFromSelect(event: TypeaheadMatch): void {
