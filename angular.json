@@ -25,6 +25,9 @@
             "styles": [
               "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
               "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "src/css/freelancer.css",
+              "src/vendor/fontawesome-free/css/all.min.css",
+              "src/vendor/magnific-popup/magnific-popup.css",           
               "src/styles.css"
             ],
             "scripts": [

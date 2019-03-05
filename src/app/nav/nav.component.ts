@@ -17,7 +17,4 @@ export class NavComponent implements OnInit {
   ngOnInit() {
   }
 
-  onHomeClick() {
-    this.router.navigate(['home']);
-  }
 }
