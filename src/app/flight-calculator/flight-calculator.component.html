@@ -1,18 +1,27 @@
-<div id="page1" class="mx-auto h-100 text-center" [hidden]="activePage != 'page1'">
-  <app-select-flights (distanceRefresh)="onRefreshDistance()" (distanceSubmit)="onDistanceSubmitted()">
-  </app-select-flights>
-</div>
+<section id="about" class="about-section text-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto text-white">
+          
+             <div id="page1" class="mx-auto h-100 text-center" [hidden]="activePage != 'page1'">
+                <app-select-flights (distanceRefresh)="onRefreshDistance()" (distanceSubmit)="onDistanceSubmitted()">
+                </app-select-flights>
+              </div>
 
-<div id="page2" class="mx-auto h-100 text-center" [hidden]="activePage != 'page2'">
-  <app-calculate-emission [distanceInKm]="distanceInKm" (emissionRefresh)="onRefreshEmission()"
-    (emissionSubmit)="onEmissionSubmitted()" (reset)="onReset()"></app-calculate-emission>
-</div>
+              <div id="page2" class="mx-auto h-100 text-center" [hidden]="activePage != 'page2'">
+                <app-calculate-emission [distanceInKm]="distanceInKm" (emissionRefresh)="onRefreshEmission()"
+                  (emissionSubmit)="onEmissionSubmitted()" (reset)="onReset()"></app-calculate-emission>
+              </div>
 
-<div id="page3" class="mx-auto h-100" [hidden]="activePage != 'page3'">
-  <app-calculate-trees [emission]="emission" (treesSubmit)="onTreesSubmitted()" (reset)="onReset()">
-  </app-calculate-trees>
-</div>
+              <div id="page3" class="mx-auto h-100" [hidden]="activePage != 'page3'">
+                <app-calculate-trees [emission]="emission" (treesSubmit)="onTreesSubmitted()" (reset)="onReset()">
+                </app-calculate-trees>
+              </div>
 
-<div id="page4" class="mx-auto h-100" [hidden]="activePage != 'page4'">
-  <app-donate [treeCount]="treesToDonate"></app-donate>
-</div>
+              <div id="page4" class="mx-auto h-100" [hidden]="activePage != 'page4'">
+                <app-donate [treeCount]="treesToDonate"></app-donate>
+              </div>
+          </div>
+      </div>
+    </div>
+  </section>

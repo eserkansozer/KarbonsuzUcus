@@ -1,14 +1,26 @@
-<div class="inner container d-flex flex-column flex-md-row justify-content-between">
-  <h2 (click)="onHomeClick()" class="masthead-brand">
-    <div style="display: inline-flex">
-    <fa-icon class="fa-2x ml-2" [icon]="faTree"></fa-icon>
-    <fa-icon class="fa-sm" [icon]="faPlane" style="transform: rotate(-20deg); float: right"></fa-icon>
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" [ngClass]="{'navbar-shrink': !isHomePage}" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand js-scroll-trigger" [routerLink]="['/home']">
+        <fa-icon class="fa-2x ml-2" [icon]="faTree"></fa-icon>
+        <fa-icon class="fa-sm" [icon]="faPlane" style="transform: rotate(-20deg); float: right"></fa-icon>
+    </a>
+    <a class="navbar-brand js-scroll-trigger" [routerLink]="['/home']"><span i18n="@@NavMainheader">Offset My Carbon</span></a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a i18n="@@NavHome" class="nav-link js-scroll-trigger" [routerLink]="['/home']" routerLinkActive="active">Home</a>
+        </li>
+        <li class="nav-item">
+          <a i18n="@@NavAbout" class="nav-link js-scroll-trigger" [routerLink]="['/about']" routerLinkActive="active">About</a>
+        </li>
+        <li class="nav-item">
+          <a i18n="@@NavContact" class="nav-link js-scroll-trigger" [routerLink]="['/contact']" routerLinkActive="active">Contact</a>
+        </li>
+      </ul>
+    </div>
   </div>
-    <span i18n="@@NavMainheader" class="masthead-brand__text">Offset My Carbon</span>
-  </h2>
-  <nav class="nav nav-masthead justify-content-center">
-    <a i18n="@@NavHome" class="nav-link" [routerLink]="['/home']" routerLinkActive="router-link-active" >Home</a>
-    <a i18n="@@NavAbout" class="nav-link" [routerLink]="['/about']" routerLinkActive="router-link-active" >About</a>
-    <a i18n="@@NavContact" class="nav-link" [routerLink]="['/contact']" routerLinkActive="router-link-active" >Contact</a>
-  </nav>
-</div>
+</nav>
