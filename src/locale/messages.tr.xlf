@@ -36,7 +36,7 @@
       </trans-unit>
       <trans-unit id="ContentHeader">
         <source>Aviation is the one of the biggest contributors to carbon emissions</source>
-        <target>Seyahat amaçlı uçuşlar karbondiyoksit salımınının en büyük kaynağıdır.</target>
+        <target>Seyahat</target>
       </trans-unit>
       <trans-unit id="ContentText">
         <source>You can simply calculate your carbon footprint of your flights and offset them using our simple tool.</source>

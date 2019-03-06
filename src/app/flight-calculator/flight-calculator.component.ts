@@ -3,6 +3,8 @@ import { CalculateTreesComponent } from './calculate-trees/calculate-trees.compo
 import { CalculateEmissionComponent } from './calculate-emission/calculate-emission.component';
 import { SelectFlightsComponent } from './select-flights/select-flights.component';
 
+declare let $: any;
+
 @Component({
   selector: 'app-flight-calculator',
   templateUrl: './flight-calculator.component.html',
@@ -26,6 +28,14 @@ export class FlightCalculatorComponent implements OnInit {
 
   constructor() {
     this.activePage = 'page1';
+
+    setTimeout(() => {
+        if ($('#page1').length > 0) {
+          $('html, body').animate({
+            scrollTop: ($('#page1').offset().top)
+            }, 1000, 'easeInOutExpo');
+        }
+      }, 1000);
   }
 
   ngOnInit() {  }

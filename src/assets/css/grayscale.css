@@ -7,6 +7,7 @@
 #mainNav {
   min-height: 56px;
   background-color: #fff;
+  position: relative;
 }
 
 #mainNav .navbar-toggler {
@@ -18,6 +19,10 @@
 
 #mainNav .navbar-toggler:focus {
   outline: none;
+}
+
+#mainNav.navbar-shrink {
+  position: relative;
 }
 
 #mainNav .navbar-brand {
@@ -45,6 +50,7 @@
     background-color: transparent;
     -webkit-transition: background-color 0.3s ease-in-out;
     transition: background-color 0.3s ease-in-out;
+    position: fixed;
   }
   #mainNav .navbar-brand {
     padding: .5rem 0;
@@ -64,6 +70,7 @@
   }
   #mainNav.navbar-shrink {
     background-color: #fff;
+    position: fixed;
   }
   #mainNav.navbar-shrink .navbar-brand {
     color: #161616;
