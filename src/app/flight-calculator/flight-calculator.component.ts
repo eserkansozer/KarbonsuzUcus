@@ -29,13 +29,7 @@ export class FlightCalculatorComponent implements OnInit {
   constructor() {
     this.activePage = 'page1';
 
-    setTimeout(() => {
-        if ($('#page1').length > 0) {
-          $('html, body').animate({
-            scrollTop: ($('#page1').offset().top)
-            }, 1000, 'easeInOutExpo');
-        }
-      }, 1000);
+    this.slideToContent();
   }
 
   ngOnInit() {  }
@@ -43,15 +37,18 @@ export class FlightCalculatorComponent implements OnInit {
   onDistanceSubmitted() {
     this.emission = this.calculateEmissionComponent.calculateEmission();
     this.activePage = 'page2';
+    this.slideToContent();
   }
 
   onEmissionSubmitted() {
     this.treesToDonate = this.calculateTreesComponent.calculateTrees();
     this.activePage = 'page3';
+    this.slideToContent();
   }
 
   onTreesSubmitted() {
     this.activePage = 'page4';
+    this.slideToContent();
   }
 
   onRefreshDistance() {
@@ -73,5 +70,19 @@ export class FlightCalculatorComponent implements OnInit {
     this.selectFlightsComponent.distanceInMiles = null;
     this.calculateEmissionComponent.emission = null;
     this.activePage = 'page1';
+    this.slideToContent();
+  }
+
+  private slideToContent() {
+    const width = window.innerWidth || document.body.clientWidth;
+    if (width < 992) {
+    setTimeout(() => {
+      if ($('#pageWrapper').length > 0) {
+        $('html, body').animate({
+          scrollTop: ($('#pageWrapper').offset().top + 50)
+        }, 500, 'easeInOutExpo');
+      }
+    }, 1000);
+  }
   }
 }
