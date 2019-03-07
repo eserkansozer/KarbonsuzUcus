@@ -63,7 +63,7 @@ import { DonateComponent } from './donate/donate.component';
           {path: 'about', component: Co2InfoComponent},
           {path: 'contact', component: ContactComponent},
           {path: 'confirmation', component: ConfirmationComponent},
-          {path: 'donate', component: DonateComponent},
+          {path: 'donate/:trees', component: DonateComponent},
           {path: '**', component: NotFoundComponent}
         ]
       )

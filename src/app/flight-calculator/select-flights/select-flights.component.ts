@@ -41,7 +41,7 @@ export class SelectFlightsComponent implements OnInit {
     if (!this.distanceInMiles) {
      return new Array(0);
     }
-    return new Array(Math.floor(this.distanceInMiles / 1000));
+    return new Array(Math.ceil(this.distanceInMiles / 1000));
   }
 
   constructor(private http: HttpClient, @Inject(LOCALE_ID) locale: string) {

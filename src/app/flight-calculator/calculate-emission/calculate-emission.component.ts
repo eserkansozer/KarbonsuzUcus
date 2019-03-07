@@ -31,7 +31,7 @@ export class CalculateEmissionComponent implements OnInit {
     if (!this.emission) {
      return new Array(0);
     }
-    return new Array(Math.floor(this.emission / 300));
+    return new Array(Math.ceil(this.emission / 300));
   }
 
   constructor() {

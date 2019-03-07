@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-donate',
@@ -7,13 +8,18 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class DonateComponent implements OnInit {
 
-  @Input() treeCount: number;
+  treeCount: number;
   perTreeFeeTema = 10;
   perTreeFeeCekul = 13;
   perTreeFeeEgeOrman = 10;
   perTreeFeeDocev = 10;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) {
+
+    this.route.params.subscribe(params => {
+      this.treeCount = +params.trees;
+   });
+   }
 
   ngOnInit() {
   }
