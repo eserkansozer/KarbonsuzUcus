@@ -24,7 +24,7 @@ import { ForestComponent } from './forest/forest.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RatingModule } from 'ngx-bootstrap/rating';
 import { ConfirmationComponent } from './confirmation/confirmation.component';
-import { DonateComponent } from './flight-calculator/donate/donate.component';
+import { DonateComponent } from './donate/donate.component';
 
 @NgModule({
    declarations: [
@@ -63,6 +63,7 @@ import { DonateComponent } from './flight-calculator/donate/donate.component';
           {path: 'about', component: Co2InfoComponent},
           {path: 'contact', component: ContactComponent},
           {path: 'confirmation', component: ConfirmationComponent},
+          {path: 'donate', component: DonateComponent},
           {path: '**', component: NotFoundComponent}
         ]
       )

@@ -1,0 +1,15 @@
+.card{
+  background-color: inherit;
+  border-color: rgb(100, 161, 157);
+  display: inline-block;
+  margin: 5px;
+}
+.btn{
+  background: rgba(100, 161, 157, 0.5);
+  transition: all 0.3s ease-out;
+}
+
+.btn:active, .btn:focus, .btn:hover {
+  background: rgb(100, 161, 157);
+  transition: all 0.5s ease-in;
+}

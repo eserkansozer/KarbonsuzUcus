@@ -79,7 +79,7 @@ export class FlightCalculatorComponent implements OnInit {
     setTimeout(() => {
       if ($('#pageWrapper').length > 0) {
         $('html, body').animate({
-          scrollTop: ($('#pageWrapper').offset().top + 50)
+          scrollTop: ($('#pageWrapper').offset().top)
         }, 500, 'easeInOutExpo');
       }
     }, 1000);

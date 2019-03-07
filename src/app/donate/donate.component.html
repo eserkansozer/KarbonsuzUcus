@@ -1,0 +1,70 @@
+<section id="signup" class="signup-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 col-lg-8 mx-auto text-center text-white">
+
+        <div class="mt-2 mb-3">
+
+          <h2 class="pt-5">Please select one of our preferred charities below</h2>
+
+          <div class="my-5">
+            <div class="card" style="width: 18rem;">
+              <img class="card-img-top p-2" src="assets/images/logo_tema.jpg" alt="TEMA">
+              <div class="card-body">
+                <h5 class="card-title">TEMA</h5>
+                <p class="card-text">Türkiye Erozyonla Mücadele, Ağaçlandırma ve Doğal Varlıkları Koruma Vakfı</p>
+                <a class="btn btn-success" (click)="onDonate('tema')" routerLink="/confirmation">Donate {{treeCount}}
+                  trees
+                  <span class="badge badge-light">{{treeCount * perTreeFeeTema}} TL</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="card" style="width: 18rem;">
+              <img class="card-img-top p-2" src="assets/images/logo_cekul.png" alt="ÇEKÜL">
+              <div class="card-body">
+                <h5 class="card-title">ÇEKÜL</h5>
+                <p class="card-text">Çevre ve Kültür Değerlerini Koruma ve Tanıtma Vakfı<br><br></p>
+                <a class="btn btn-success" (click)="onDonate('cekul')" routerLink="/confirmation">Donate {{treeCount}}
+                  trees
+                  <span class="badge badge-light">{{treeCount * perTreeFeeCekul}} TL</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="card" style="width: 18rem;">
+              <img class="card-img-top p-2" src="assets/images/logo_egeorman.jpg" alt="EGE ORMAN VAKFI">
+              <div class="card-body">
+                <h5 class="card-title">EGE ORMAN VAKFI</h5>
+                <p class="card-text">Ege Orman Vakfı<br><br><br><br></p>
+                <a class="btn btn-success" (click)="onDonate('egeorman')" routerLink="/confirmation">Donate
+                  {{treeCount}} trees
+                  <span class="badge badge-light">{{treeCount * perTreeFeeEgeOrman}} TL</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="card" style="width: 18rem;">
+              <img class="card-img-top p-2" src="assets/images/logo_docev.jpg" alt="DOÇEV">
+              <div class="card-body">
+                <h5 class="card-title">DOÇEV</h5>
+                <p class="card-text">Doğa ve Çevre Vakfı<br><br><br><br></p>
+                <a class="btn btn-success" (click)="onDonate('docev')" routerLink="/confirmation">Donate {{treeCount}}
+                  trees
+                  <span class="badge badge-light">{{treeCount * perTreeFeeDocev}} TL</span>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="my-5">
+            <a class="btn btn-lg btn-success m-2" href="http://www.tema.org.tr" target="_blank">TEMA</a>
+            <a class="btn btn-lg btn-success m-2" href="https://www.cekulvakfi.org.tr" target="_blank">ÇEKÜL</a>
+            <a class="btn btn-lg btn-success m-2" href="https://www.egeorman.org.tr" target="_blank">EGE ORMAN VAKFI</a>
+            <a class="btn btn-lg btn-success m-2" href="http://www.docev.org.tr" target="_blank">DOÇEV</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
