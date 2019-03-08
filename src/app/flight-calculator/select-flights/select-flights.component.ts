@@ -8,6 +8,7 @@ import { faPlaneDeparture, faPlaneArrival, faExchangeAlt, faEllipsisH, faPlane, 
 
 declare let LatLon: any; // This variable is created externally elsewhere. This is just declaration for the compiler.
 declare let Dms: any; // This variable is created externally elsewhere. This is just declaration for the compiler.
+declare let $: any;
 
 @Component({
   selector: 'app-select-flights',
@@ -50,7 +51,7 @@ export class SelectFlightsComponent implements OnInit {
     this.showDistanceInMiles = locale === 'en-US';
     this.isReturnTrip = true;
 
-    //this.locale = 'tr-TR';
+    // this.locale = 'tr-TR';
 
     // if (isDevMode) {
     //   this.selectedFromAirport = new AirportModel('Adnan Menderes Intl ', 'Izmir', 'Turkey', 'ADB', 27.156999588, 38.2924003601);
@@ -119,7 +120,21 @@ export class SelectFlightsComponent implements OnInit {
       this.distanceInKm = null;
       this.distanceInMiles = null;
     }
+    this.slideToContent();
     return this.distanceInKm;
+  }
+
+  private slideToContent() {
+    const width = window.innerWidth || document.body.clientWidth;
+    if (width < 992) {
+      setTimeout(() => {
+        if ($('#pageWrapper').length > 0) {
+          $('html, body').animate({
+            scrollTop: ($('#pageWrapper').offset().top)
+          }, 500, 'easeInOutExpo');
+        }
+      }, 1000);
+    }
   }
 
 }
