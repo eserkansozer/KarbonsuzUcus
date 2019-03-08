@@ -13,6 +13,7 @@ export class CalculateTreesComponent implements OnInit {
   @Output() reset = new EventEmitter();
 
   treesToDonate: number;
+  treesCounted = false;
 
   faTree = faTree;
 
@@ -37,6 +38,7 @@ export class CalculateTreesComponent implements OnInit {
   }
 
   calculateTrees(): number {
+    this.treesCounted = false;
     this.treesToDonate = Math.ceil(this.emission * Constants.TREES_PER_KG_EMISSION);
     return this.treesToDonate;
   }

@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
+declare let $: any;
+
 @Component({
   selector: 'app-donate',
   templateUrl: './donate.component.html',
@@ -18,8 +20,10 @@ export class DonateComponent implements OnInit {
 
     this.route.params.subscribe(params => {
       this.treeCount = +params.trees;
-   });
-   }
+    });
+
+    this.slideToContent();
+  }
 
   ngOnInit() {
   }
@@ -42,6 +46,19 @@ export class DonateComponent implements OnInit {
         break;
     }
     window.open(urlBase + parameters);
+  }
+
+  private slideToContent() {
+    const width = window.innerWidth || document.body.clientWidth;
+    if (width < 992) {
+      setTimeout(() => {
+        if ($('.container').length > 0) {
+          $('html, body').animate({
+            scrollTop: ($('.container').offset().top)
+          }, 500, 'easeInOutExpo');
+        }
+      }, 1000);
+    }
   }
 
 }

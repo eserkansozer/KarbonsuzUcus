@@ -9,7 +9,9 @@
         <fa-icon class="mx-1" [icon]="faPlane"></fa-icon>
       </div>
       <h4>Total CO<sub>2</sub> emission</h4>
-      <div class="display-4">{{emission | number}}</div>
+      <div class="display-4">
+          <span [countUp]="emission" [options]="{duration: 1}">0</span>
+      </div>
       <h4>kg</h4>
     </div>
   </div>

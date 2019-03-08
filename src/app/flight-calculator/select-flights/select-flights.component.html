@@ -8,9 +8,13 @@
         <fa-icon class="mx-1" [icon]="faPlane"></fa-icon>
       </div>
       <h4>Total distance</h4>
-      <div class="display-4" *ngIf="showDistanceInKm">{{distanceInKm | number}}</div>
+      <div class="display-4" *ngIf="showDistanceInKm">
+          <span [countUp]="distanceInKm" [options]="{duration: 1}">0</span>
+      </div>
       <span *ngIf="showDistanceInKm">km</span>
-      <div class="display-4" *ngIf="showDistanceInMiles">{{distanceInMiles | number}}</div>
+      <div class="display-4" *ngIf="showDistanceInMiles">
+          <span [countUp]="distanceInMiles" [options]="{duration: 1}">0</span>
+      </div>
       <span *ngIf="distanceInMiles">miles</span>
     </div>
   </div>

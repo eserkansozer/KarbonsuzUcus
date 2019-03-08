@@ -8,6 +8,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { CountUpModule } from 'countup.js-angular2';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -50,6 +51,7 @@ import { DonateComponent } from './donate/donate.component';
       FontAwesomeModule,
       FormsModule,
       HttpClientModule,
+      CountUpModule,
       TypeaheadModule.forRoot(),
       CarouselModule.forRoot(),
       RatingModule.forRoot(),
