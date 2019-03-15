@@ -39,7 +39,7 @@ export class CalculateTreesComponent implements OnInit {
 
   calculateTrees(): number {
     this.treesCounted = false;
-    this.treesToDonate = Math.ceil(this.emission * Constants.TREES_PER_KG_EMISSION);
+    this.treesToDonate = Math.round(this.emission * Constants.TREES_PER_KG_EMISSION);
     return this.treesToDonate;
   }
 

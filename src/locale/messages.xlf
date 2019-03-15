@@ -51,13 +51,6 @@
           <context context-type="linenumber">5</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="ContentHeader" datatype="html">
-        <source>Aviation is the one of the biggest contributors to carbon emissions</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/content/content.component.html</context>
-          <context context-type="linenumber">1</context>
-        </context-group>
-      </trans-unit>
       <trans-unit id="ContentText" datatype="html">
         <source>You can simply calculate your carbon footprint of your flights and offset them using our simple tool.</source>
         <context-group purpose="location">
@@ -77,15 +70,6 @@
         <context-group purpose="location">
           <context context-type="sourcefile">app/flight-calculator/flight-calculator.component.html</context>
           <context context-type="linenumber">4</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="Co2Content" datatype="html">
-        <source>
-  CO2 is bad
-</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/co2-info/co2-info.component.html</context>
-          <context context-type="linenumber">1</context>
         </context-group>
       </trans-unit>
       <trans-unit id="ContactContent" datatype="html">

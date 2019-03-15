@@ -4,8 +4,16 @@
       <div class="col-md-10 col-lg-8 mx-auto text-center text-white">
 
         <div class="mt-2 mb-3">
-
-          <h2 class="pt-5">Please select one of our preferred charities below</h2>
+           <h4 class="mt-2">
+                <ng-container i18n="@@ToOffsetYourEmmission">To offset your flight's emission</ng-container>
+           </h4>
+           <h4 class="display-4" style="color: greenyellow">
+              {{treeCount}}
+            </h4>
+          <h4 class="mt-2">
+               <ng-container i18n="@@SelectCharities">Please select one of our preferred charities below</ng-container>
+          </h4>
+          <!-- <h4 class="pt-5" i18n="@@PleaseClick">Please click</h4> -->
 
           <div class="my-5">
             <div class="card" style="width: 18rem;">
@@ -13,9 +21,13 @@
               <div class="card-body">
                 <h5 class="card-title">TEMA</h5>
                 <p class="card-text">Türkiye Erozyonla Mücadele, Ağaçlandırma ve Doğal Varlıkları Koruma Vakfı</p>
-                <a class="btn btn-success" (click)="onDonate('tema')" routerLink="/confirmation">Donate {{treeCount}}
-                  trees
-                  <span class="badge badge-light">{{treeCount * perTreeFeeTema}} TL</span>
+                <a class="btn btn-success" (click)="onDonate('tema')" routerLink="/confirmation">
+                  <div class="block mt-1">
+                    <ng-container i18n="@@Donate">Donate</ng-container>  {{treeCount}}
+                    <ng-container i18n="@@DonateTrees">trees</ng-container>
+                  </div>
+                  <span class="badge badge-light">{{treeCount * perTreeFeeTema }} ₺</span>
+                  <span class="badge badge-success ml-1">Online</span>
                 </a>
               </div>
             </div>
@@ -25,9 +37,13 @@
               <div class="card-body">
                 <h5 class="card-title">ÇEKÜL</h5>
                 <p class="card-text">Çevre ve Kültür Değerlerini Koruma ve Tanıtma Vakfı<br><br></p>
-                <a class="btn btn-success" (click)="onDonate('cekul')" routerLink="/confirmation">Donate {{treeCount}}
-                  trees
-                  <span class="badge badge-light">{{treeCount * perTreeFeeCekul}} TL</span>
+                <a class="btn btn-success" (click)="onDonate('cekul')" routerLink="/confirmation">
+                  <div style='display: block'>
+                    <ng-container i18n="@@Donate">Donate</ng-container>  {{treeCount}}
+                    <ng-container i18n="@@DonateTrees">trees</ng-container>
+                  </div>
+                  <span class="badge badge-light">{{treeCount * perTreeFeeCekul}} ₺</span>
+                  <span class="badge badge-success ml-1">Online</span>
                 </a>
               </div>
             </div>
@@ -37,9 +53,13 @@
               <div class="card-body">
                 <h5 class="card-title">EGE ORMAN VAKFI</h5>
                 <p class="card-text">Ege Orman Vakfı<br><br><br><br></p>
-                <a class="btn btn-success" (click)="onDonate('egeorman')" routerLink="/confirmation">Donate
-                  {{treeCount}} trees
-                  <span class="badge badge-light">{{treeCount * perTreeFeeEgeOrman}} TL</span>
+                <a class="btn btn-success" (click)="onDonate('egeorman')" routerLink="/confirmation">
+                  <div style='display: block'>
+                    <ng-container i18n="@@Donate">Donate</ng-container>  {{treeCount}}
+                    <ng-container i18n="@@DonateTrees">trees</ng-container>
+                  </div>
+                  <span class="badge badge-light">{{treeCount * perTreeFeeEgeOrman}} ₺</span>
+                  <span class="badge badge-success ml-1">Online</span>
                 </a>
               </div>
             </div>
@@ -49,9 +69,13 @@
               <div class="card-body">
                 <h5 class="card-title">DOÇEV</h5>
                 <p class="card-text">Doğa ve Çevre Vakfı<br><br><br><br></p>
-                <a class="btn btn-success" (click)="onDonate('docev')" routerLink="/confirmation">Donate {{treeCount}}
-                  trees
-                  <span class="badge badge-light">{{treeCount * perTreeFeeDocev}} TL</span>
+                <a class="btn btn-success" (click)="onDonate('docev')" routerLink="/confirmation">
+                  <div style='display: block'>
+                    <ng-container i18n="@@Donate">Donate</ng-container>  {{treeCount}}
+                    <ng-container i18n="@@DonateTrees">trees</ng-container>
+                  </div>
+                  <span class="badge badge-light">{{treeCount * perTreeFeeDocev}} ₺</span>
+                  <span class="badge badge-warning ml-1" i18n="@@Remittance">Remittance</span>
                 </a>
               </div>
             </div>

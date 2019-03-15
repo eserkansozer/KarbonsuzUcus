@@ -7,7 +7,7 @@
         </span>
         <fa-icon class="mx-1" [icon]="faPlane"></fa-icon>
       </div>
-      <h4>Total distance</h4>
+      <h4 i18n="@@TotalDistance">Total distance</h4>
       <div class="display-4" *ngIf="showDistanceInKm">
           <span [countUp]="distanceInKm" [options]="{duration: 1}">0</span>
       </div>
@@ -15,25 +15,27 @@
       <div class="display-4" *ngIf="showDistanceInMiles">
           <span [countUp]="distanceInMiles" [options]="{duration: 1}">0</span>
       </div>
-      <span *ngIf="distanceInMiles">miles</span>
+      <span *ngIf="showDistanceInMiles">miles</span>
     </div>
   </div>
 
   <div class="form-group mx-auto text-left my-4">
-    <label for="fromAirportName" i18n="@@FromFlight">
-      <fa-icon class="mx-1" [icon]="faPlaneDeparture"></fa-icon>Departure from:
+    <label for="fromAirportName">
+      <fa-icon class="mx-1" [icon]="faPlaneDeparture"></fa-icon><span i18n="@@FromFlight">Departure from</span>:
     </label>
     <input autocomplete="off" id="fromAirportName" [(ngModel)]="fromAirportName" [typeahead]="airports"
       typeaheadOptionField="Definition" typeaheadGroupField="Country" placeholder="Please type an airport"
-      (typeaheadOnSelect)="onFromSelect($event)" [typeaheadScrollable]="true" class="form-control">
+      (typeaheadOnSelect)="onFromSelect($event)" [typeaheadScrollable]="true" class="form-control"
+      i18n-placeholder="@@PleaseType">
   </div>
   <div class="form-group mx-auto text-left my-4">
-    <label for="toAirportName" i18n="@@ToFlight">
-      <fa-icon class="mx-1" [icon]="faPlaneArrival"></fa-icon>Arrival to:
+    <label for="toAirportName">
+      <fa-icon class="mx-1" [icon]="faPlaneArrival"></fa-icon><span i18n="@@ToFlight">Arrival to</span>:
     </label>
     <input autocomplete="off" id="toAirportName" [(ngModel)]="toAirportName" [typeahead]="airports"
       typeaheadOptionField="Definition" typeaheadGroupField="Country" placeholder="Please type an airport"
-      (typeaheadOnSelect)="onToSelect($event)" [typeaheadScrollable]="true" class="form-control">
+      (typeaheadOnSelect)="onToSelect($event)" [typeaheadScrollable]="true" class="form-control"
+      i18n-placeholder="@@PleaseType">
   </div>
   <div class="form-group mx-auto text-left my-4">
     <label class="form-check-label" for="return" i18n="@@IsReturnTrip">
@@ -45,6 +47,6 @@
 
   <div class="text-center mt-5" style="margin-bottom: 10em">
     <button (click)="onSubmit()" class="btn btn-lg btn-primary" [disabled]="!distanceInKm">
-      Calculate CO<sub>2</sub> emission
+      <ng-container i18n="@@CalculateEmission">Calculate CO2 emission</ng-container>
     </button>
   </div>

@@ -1,10 +1,10 @@
 <div class="border mx-auto my-3 p-3">
   <div class="text-center">
-    <h4>To offset this amount you need</h4>
+    <h4 i18n="@@ToOffset">To offset this amount you need</h4>
     <div class="display-2" style="color: greenyellow">
-        <span [countUp]="treesToDonate" (complete)="treesCounted = true" >0</span>
+        <span [countUp]="treesToDonate" (complete)="treesCounted = true">0</span>
     </div>
-    <h4>trees</h4>
+    <h4 i18n="@@Trees">trees</h4>
     <div>
       <span *ngFor="let unit of treeUnits">
         <fa-icon class="mx-1 your-tree" [icon]="faTree"></fa-icon>
@@ -13,10 +13,10 @@
   </div>
 </div>
 <div class="text-center mx-auto my-5">
-  <button class="btn btn-lg btn-primary" [routerLink]="['/donate/', treesToDonate]" [disabled]="!treesCounted">
+  <button class="btn btn-lg btn-primary" [routerLink]="['/donate/', treesToDonate]" [disabled]="!treesCounted" i18n="@@DonateNow">
     Donate now
   </button>
 </div>
 <div class="text-center mx-auto my-5">
-    <button type="button" class="btn btn-outline-info" (click)="onReset()">Reset</button>
+    <button type="button" class="btn btn-outline-info" (click)="onReset()"><ng-container i18n="@@Reset">Reset</ng-container></button>
 </div>

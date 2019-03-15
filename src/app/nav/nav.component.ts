@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, LOCALE_ID, Inject } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { faTree, faPlane, faBars } from '@fortawesome/free-solid-svg-icons';
 
@@ -16,8 +16,10 @@ export class NavComponent implements OnInit {
   faBars = faBars;
 
   isHomePage: boolean;
+  locale: string;
 
-  constructor(private router: Router) {
+  constructor(@Inject(LOCALE_ID) locale: string, private router: Router) {
+    this.locale = locale;
     this.router.events.subscribe((value: NavigationEnd) => {
       if (value.url) {
         this.isHomePage = value.url === '/' || value.url === '/home';
