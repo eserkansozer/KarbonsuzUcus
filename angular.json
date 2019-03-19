@@ -89,6 +89,28 @@
                   "maximumError": "5mb"
                 }
               ]
+            },
+            "tr": {
+              "optimization": false,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": false,
+              "namedChunks": false,
+              "aot": true,
+              "outputPath": "dist/offset-my-carbon-spa-tr/",
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": false,
+              "i18nFile": "src/locale/messages.tr.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "tr",
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
             }
           }
         },
@@ -103,6 +125,9 @@
             },
             "production-tr": {
               "browserTarget": "offset-my-carbon-spa:build:production-tr"
+            },
+            "tr": {
+              "browserTarget": "offset-my-carbon-spa:build:tr"
             }
           }
         },

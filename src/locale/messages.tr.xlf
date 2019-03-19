@@ -2,35 +2,35 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="en">
     <body>
-	
+
       <trans-unit id="NavMainheader" datatype="html">
-		<target>Karbonumu Sıfırla</target>
+		<target>Karbonsuz Uçuş</target>
       </trans-unit>
-	  
+
       <trans-unit id="NavHome">
         <target>Karbon Hesaplayıcı</target>
       </trans-unit>
-	  
+
       <trans-unit id="NavAbout">
         <target>Küresel Isınma</target>
       </trans-unit>
-	  
+
       <trans-unit id="NavContact">
         <target>İletişim</target>
       </trans-unit>
-	  
+
       <trans-unit id="FootSiteName">
-        <target>Karbonumu Sıfırla</target>
+        <target>karbonsuzucus.com</target>
       </trans-unit>
-	  
+
       <trans-unit id="FootSocialResp">
         <target> bir sosyal sorumluluk projesidir. </target>
       </trans-unit>
-      
+
 	  <trans-unit id="FootGroovy">
         <target>Groovy Technologies Ltd</target>
       </trans-unit>
-      
+
 	  <trans-unit id="ContentText">
         <target>Ormanlarımız hızla yok oluyor.</target>
       </trans-unit>
@@ -38,11 +38,11 @@
       <trans-unit id="ContentTextAddition">
         <target>Yaptığımız her uçuş küresel ısınmayı besliyor.</target>
       </trans-unit>
-      
+
 	  <trans-unit id="ContentText2">
         <target>Basit hesaplama aracımızla uçuşlarınızın karbon salınımını hesaplayıp, ağaç bağışınızla telafi edebilirsiniz.</target>
       </trans-unit>
- 
+
 	  <trans-unit id="ContentStartHere">
         <target>Başla</target>
       </trans-unit>
@@ -50,104 +50,104 @@
       <trans-unit id="FromFlight">
         <target>Nereden</target>
       </trans-unit>
-            
+
 	  <trans-unit id="ToFlight">
         <target>Nereye</target>
       </trans-unit>
-      
+
 	  <trans-unit id="IsReturnTrip">
         <target>Gidiş-Dönüş</target>
       </trans-unit>
-	  
+
 	  <trans-unit id="IsBusinessTrip">
         <target>Business class</target>
       </trans-unit>
-	  
+
 	  <trans-unit id="PassengerCount">
         <target>Yolcu sayısı</target>
       </trans-unit>
-	  
+
 	  <trans-unit id="PleaseType">
         <target>Havaalanı, ülke yada şehir</target>
-      </trans-unit>	  
-	  
+      </trans-unit>
+
 	  <trans-unit id="CalculateOffset">
 
         <target>Ağaç karşılığını hesapla</target>
-      </trans-unit>	  
-	  
+      </trans-unit>
+
 	  <trans-unit id="CalculateEmission">
         <target>CO2 salınımını hesapla</target>
-      </trans-unit>	  
-	  
+      </trans-unit>
+
 	  <trans-unit id="Reset">
         <target>Başa dön</target>
-      </trans-unit>	  
-	  
+      </trans-unit>
+
 	  <trans-unit id="TotalDistance">
         <target>Toplam mesafe</target>
-      </trans-unit>	  
-	  
+      </trans-unit>
+
 	  <trans-unit id="TotalEmission">
         <target>Toplam CO2 salınımı</target>
       </trans-unit>
 
 	  <trans-unit id="x">
         <target></target>
-      </trans-unit>	  
-	  
-	  <trans-unit id="ToOffset">      
+      </trans-unit>
+
+	  <trans-unit id="ToOffset">
         <target>Uçuşunuzun karbon izinin telafisi için</target>
       </trans-unit>
-	  
-	  <trans-unit id="Trees">      
+
+	  <trans-unit id="Trees">
         <target>ağaca ihtiyaç var</target>
       </trans-unit>
-	  
-	  <trans-unit id="DonateNow">      
+
+	  <trans-unit id="DonateNow">
         <target>bağış yap</target>
       </trans-unit>
-	  
+
       <trans-unit id="FCalcLookForest">
         <target>Ormanımıza göz atın!</target>
       </trans-unit>
-	  
+
       <trans-unit id="ContactContent">
-        <target>Bizimle iletişime geçin.</target>
+        <target>Destek, yorum ve görüşleriniz için bizimle iletişime geçin.</target>
       </trans-unit>
-	  
+
 	  <trans-unit id="SelectCharities">
         <target> adet ağaç bağışınızı aşağıdaki saygın vakıflarımızdan birini seçerek yapabilirsiniz.</target>
-      </trans-unit>	  
-	  
+      </trans-unit>
+
 	  <trans-unit id="PleaseClick">
         <target>Lütfen tıklayın</target>
       </trans-unit>
-	  
+
 	  <trans-unit id="Remittance">
         <target>Banka havalesİ</target>
       </trans-unit>
-	  
+
 	  <trans-unit id="Donate">
         <target> </target>
       </trans-unit>
-	  
+
 	  <trans-unit id="ToOffsetYourEmmission">
         <target>Uçuşunuzun karbon emisyonu karşılığı</target>
       </trans-unit>
-	  
+
 	  <trans-unit id="DonateTrees">
         <target> ağaç bağışla</target>
       </trans-unit>
-	  
+
 	  <trans-unit id="Thanks">
         <target>Bağışınız için teşekkür ederiz!</target>
       </trans-unit>
-	  
+
 	  <trans-unit id="DonatedAlready">
-        <target>Sitemiz üzerinden şimdiden yüzlerce ağaç, dikilmesi için vakıflara bağışlandı.</target>
+        <target>Sitemiz üzerinden şimdiden yüzlerce ağaç dikilmesi için vakıflara bağışlandı.</target>
       </trans-unit>
-	  
+
 	  <trans-unit id="NewFlight">
         <target>Bir uçuş hesaplaması daha yapmak ister misiniz?</target>
       </trans-unit>
@@ -155,7 +155,7 @@
 	  <trans-unit id="StartAgain">
         <target>Başa dön</target>
       </trans-unit>
-	  
+
     </body>
   </file>
 </xliff>
