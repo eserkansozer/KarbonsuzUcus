@@ -1,0 +1,19 @@
+.about-section{
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  line-height: 2rem;
+}
+
+.about-section li{
+  margin-top: 2rem;
+}
+
+.about-section p {
+  margin-bottom: 3rem;
+}
+
+.lead{
+  margin-top: 0;
+  margin-bottom: 0;
+}
+

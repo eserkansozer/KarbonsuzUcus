@@ -199,7 +199,7 @@
 }
 
 .projects-section {
-  padding: 10rem 0;
+  padding: 2rem 0;
 }
 
 .projects-section .featured-text {
@@ -210,6 +210,19 @@
   .projects-section .featured-text {
     padding: 0 0 0 2rem;
     border-left: 0.5rem solid #64a19d;
+  }
+
+  .projects-section .featured-text-right {
+    padding: 0 2rem 0 0;
+    border-right: 0.5rem solid #64a19d;
+  }
+
+  .projects-section:first-child {
+    padding-top: 8rem
+  }
+
+  .projects-section {
+    padding-top: 4rem
   }
 }
 
