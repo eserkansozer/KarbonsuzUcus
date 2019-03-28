@@ -61,6 +61,7 @@ import { DonateComponent } from './donate/donate.component';
           {path: '', component: ContentComponent},
           {path: 'home', component: ContentComponent},
           {path: 'flight-calculator', component: FlightCalculatorComponent},
+          {path: 'karbon-hesapla', component: FlightCalculatorComponent},
           {path: 'forest', component: ForestComponent},
           {path: 'climate-change', component: Co2InfoComponent},
           {path: 'kuresel-isinma', component: Co2InfoComponent},
