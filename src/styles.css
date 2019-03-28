@@ -132,6 +132,13 @@ body {
         }
       } */
 
+      @import '~@ngx-share/button/themes/default/default-theme';
+
+      .sb-icon
+      {
+        color: rgba(255, 255, 255, .5);
+      }
+
       .fa-tree{
         color: rgb(38, 148, 38)
       }

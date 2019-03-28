@@ -26,6 +26,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { RatingModule } from 'ngx-bootstrap/rating';
 import { ConfirmationComponent } from './confirmation/confirmation.component';
 import { DonateComponent } from './donate/donate.component';
+import { ShareButtonsModule } from '@ngx-share/buttons';
+
+
 
 @NgModule({
    declarations: [
@@ -52,6 +55,7 @@ import { DonateComponent } from './donate/donate.component';
       FormsModule,
       HttpClientModule,
       CountUpModule,
+      ShareButtonsModule,
       TypeaheadModule.forRoot(),
       CarouselModule.forRoot(),
       RatingModule.forRoot(),
