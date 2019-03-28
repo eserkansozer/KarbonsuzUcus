@@ -65,7 +65,7 @@ import { DonateComponent } from './donate/donate.component';
           {path: 'climate-change', component: Co2InfoComponent},
           {path: 'kuresel-isinma', component: Co2InfoComponent},
           {path: 'contact', component: ContactComponent},
-          {path: 'confirmation', component: ConfirmationComponent},
+          {path: 'confirmation/:charity/:trees', component: ConfirmationComponent},
           {path: 'donate/:trees', component: DonateComponent},
           {path: '**', component: NotFoundComponent}
         ]
