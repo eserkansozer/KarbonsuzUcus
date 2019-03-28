@@ -28,6 +28,8 @@ import { ConfirmationComponent } from './confirmation/confirmation.component';
 import { DonateComponent } from './donate/donate.component';
 import { ShareButtonsModule } from '@ngx-share/buttons';
 
+
+
 @NgModule({
    declarations: [
       AppComponent,

@@ -9,15 +9,18 @@
 <footer class="bg-black small text-center text-white-50">
     <div class="container">
         <share-buttons [theme]="'circles-light'"
-        [include]="['facebook','twitter','linkedin','google','messenger','whatsapp','email','print','copy']"
+        [include]="['facebook','twitter','whatsapp','linkedin','google','messenger','print']"
         [show]="9"
-        [size]="-2"
+        [size]="0"
         [url]="'https://karbonsuzucus.com/'"
         [autoSetMeta]="false"
        ></share-buttons>
+
+       <div class="mt-2">
         <a href="/"><span i18n="@@FootSiteName" class="footer__title">karbonsuzucus.com</span></a>
         <span i18n="@@FootSocialResp"> is a social responsibility project by </span>
         <a i18n="@@FootGroovy" href="https://www.groovytechs.co.uk">Groovy Technologies Ltd</a>
         <p class="text-center">Copyright &copy; <span i18n="@@FootSiteName">karbonsuzucus.com</span> 2019</p>
+        </div>
     </div>
-  </footer> 
+  </footer>
