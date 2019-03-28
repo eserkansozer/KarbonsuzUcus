@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
+declare let dataLayer: any;
 @Component({
   selector: 'app-donate',
   templateUrl: './donate.component.html',
@@ -42,6 +43,7 @@ export class DonateComponent implements OnInit {
         urlBase = 'http://www.docev.org.tr/fidanbagisi.aspx?';
         break;
     }
+    dataLayer.push({ 'event': 'gtm_donation_button_click', 'charity' : charity, 'trees' : this.treeCount });
     window.open(urlBase + parameters);
   }
 }
