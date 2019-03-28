@@ -55,16 +55,16 @@
   }
   #mainNav .navbar-brand {
     padding: .5rem 0;
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.95);
   }
   #mainNav .nav-link {
     -webkit-transition: none;
     transition: none;
     padding: 2rem 1.5rem;
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.7);
   }
   #mainNav .nav-link:hover {
-    color: rgba(255, 255, 255, 0.75);
+    color: rgba(255, 255, 255);
   }
   #mainNav .nav-link:active {
     color: white;
@@ -113,7 +113,7 @@
   font-size: 2.5rem;
   line-height: 2.5rem;
   letter-spacing: 0.8rem;
-  background: -webkit-linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0));
+  background: -webkit-linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.2));
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
 }
@@ -204,6 +204,10 @@
 
 .projects-section .featured-text {
   padding: 2rem;
+}
+
+.text-white-50 {
+  color: rgba(255,255,255,.7)!important;
 }
 
 @media (min-width: 992px) {
