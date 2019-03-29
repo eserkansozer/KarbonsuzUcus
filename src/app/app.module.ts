@@ -73,7 +73,7 @@ import { ShareButtonsModule } from '@ngx-share/buttons';
           {path: 'confirmation/:charity/:trees', component: ConfirmationComponent},
           {path: 'donate/:trees', component: DonateComponent},
           {path: '**', component: NotFoundComponent}
-        ]
+        ], {scrollPositionRestoration: 'enabled'}
       )
    ],
    providers: [],
