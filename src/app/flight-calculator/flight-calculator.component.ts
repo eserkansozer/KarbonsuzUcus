@@ -36,19 +36,20 @@ export class FlightCalculatorComponent implements OnInit {
 
   onDistanceSubmitted() {
     this.emission = this.calculateEmissionComponent.calculateEmission();
-    this.activePage = 'page2';
     this.slideToContent();
+    this.activePage = 'page2';
   }
 
   onEmissionSubmitted() {
     this.treesToDonate = this.calculateTreesComponent.calculateTrees();
-    this.activePage = 'page3';
     this.slideToContent();
+    this.activePage = 'page3';
+
   }
 
   onTreesSubmitted() {
-    this.activePage = 'page4';
     this.slideToContent();
+    this.activePage = 'page4';
   }
 
   onRefreshDistance() {
@@ -69,8 +70,8 @@ export class FlightCalculatorComponent implements OnInit {
     this.selectFlightsComponent.distanceInKm = null;
     this.selectFlightsComponent.distanceInMiles = null;
     this.calculateEmissionComponent.emission = null;
-    this.activePage = 'page1';
     this.slideToContent();
+    this.activePage = 'page1';
   }
 
   private slideToContent() {
@@ -82,7 +83,7 @@ export class FlightCalculatorComponent implements OnInit {
           scrollTop: ($('#pageWrapper').offset().top)
         }, 500, 'easeInOutExpo');
       }
-    }, 1000);
+    }, 500);
   }
   }
 }

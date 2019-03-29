@@ -102,6 +102,7 @@ export class SelectFlightsComponent implements OnInit {
   }
 
   calculateDistance(): number {
+    this.slideToContent();
     if (this.selectedFromAirport && this.selectedToAirport) {
       const p1 = new LatLon(Dms.parseDMS(this.selectedFromAirport.Lat), Dms.parseDMS(this.selectedFromAirport.Lon));
       const p2 = new LatLon(Dms.parseDMS(this.selectedToAirport.Lat), Dms.parseDMS(this.selectedToAirport.Lon));
@@ -118,7 +119,6 @@ export class SelectFlightsComponent implements OnInit {
       this.distanceInKm = null;
       this.distanceInMiles = null;
     }
-    this.slideToContent();
     return this.distanceInKm;
   }
 
@@ -131,7 +131,7 @@ export class SelectFlightsComponent implements OnInit {
             scrollTop: ($('#pageWrapper').offset().top)
           }, 500, 'easeInOutExpo');
         }
-      }, 1000);
+      }, 500);
     }
   }
 
