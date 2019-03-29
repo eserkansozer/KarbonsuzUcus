@@ -170,3 +170,7 @@ body {
     .gray{
       color: gray;
     }
+
+    button.sb-wrapper{
+      display: contents!important;
+    }
