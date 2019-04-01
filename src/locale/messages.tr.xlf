@@ -77,7 +77,7 @@
       </trans-unit>
 
 	  <trans-unit id="CalculateEmission">
-        <target>Karbondioksit salınımını hesapla</target>
+        <target>salınımını hesapla</target>
       </trans-unit>
 
 	  <trans-unit id="Reset">
