@@ -77,7 +77,7 @@
       </trans-unit>
 
 	  <trans-unit id="CalculateEmission">
-        <target>CO2 salınımını hesapla</target>
+        <target>Karbondioksit salınımını hesapla</target>
       </trans-unit>
 
 	  <trans-unit id="Reset">
@@ -89,7 +89,7 @@
       </trans-unit>
 
 	  <trans-unit id="TotalEmission">
-        <target>Toplam CO2 salınımı</target>
+        <target>Toplam karbondioksit salınımı</target>
       </trans-unit>
 
 	  <trans-unit id="x">
@@ -146,6 +146,10 @@
 
 	  <trans-unit id="DonatedAlready">
         <target>Sitemiz üzerinden şimdiden yüzlerce ağaç dikilmesi için vakıflara bağışlandı.</target>
+    </trans-unit>
+
+	  <trans-unit id="HowToReduceCo2Emissions">
+        <target>Karbon ayak izinizi küçültmek için yapabileceğiniz daha pek çok şey var.</target>
       </trans-unit>
 
 	  <trans-unit id="NewFlight">

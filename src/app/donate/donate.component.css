@@ -13,3 +13,11 @@
   background: rgb(100, 161, 157);
   transition: all 0.5s ease-in;
 }
+
+.in-link{
+  color: greenyellow;
+}
+
+.in-link:hover{
+  opacity: 0.8;
+}
