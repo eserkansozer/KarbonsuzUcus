@@ -28,7 +28,7 @@ export class DonateComponent implements OnInit {
 
   onDonate(charity) {
     let urlBase: string;
-    const parameters = `kaynak=sifirkarbon&adet=${this.treeCount}`;
+    const parameters = `kaynak=karbonsuzucus&adet=${this.treeCount}`;
     switch (charity) {
       case 'tema':
         urlBase = 'https://online.tema.org.tr/web_14966_1/member_panel_company.aspx?support_id=8&';
