@@ -32,15 +32,15 @@
       </trans-unit>
 
 	  <trans-unit id="ContentText">
-        <target>Ormanlarımız hızla yok oluyor.</target>
+        <target>Ormanlarımız hızla azalıyor.</target>
       </trans-unit>
 
       <trans-unit id="ContentTextAddition">
-        <target>Yaptığımız her uçuş küresel ısınmayı besliyor.</target>
+        <target>Yaptığımız her uçuş küresel ısınmayı arttırıyor.</target>
       </trans-unit>
 
 	  <trans-unit id="ContentText2">
-        <target>Basit hesaplama aracımızla uçuşlarınızın karbon salınımını hesaplayıp, ağaç bağışınızla telafi edebilirsiniz.</target>
+        <target>Basit hesaplama aracımızla uçuşunuzun karbon salınımını hesaplayıp, ağaç bağışınızla telafi edebilirsiniz.</target>
       </trans-unit>
 
 	  <trans-unit id="ContentStartHere">
