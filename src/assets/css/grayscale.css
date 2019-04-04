@@ -108,7 +108,7 @@
   background-size: cover;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px) { 
   .masthead {
     padding: 5rem 0;
   }
