@@ -1,19 +1,23 @@
-import { CalculateTreesComponent } from './flight-calculator/calculate-trees/calculate-trees.component';
-import { CalculateEmissionComponent } from './flight-calculator/calculate-emission/calculate-emission.component';
-import { SelectFlightsComponent } from './flight-calculator/select-flights/select-flights.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { RatingModule } from 'ngx-bootstrap/rating';
 import { CountUpModule } from 'countup.js-angular2';
+import { ShareButtonsModule } from '@ngx-share/buttons';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
-import { RouterModule } from '@angular/router';
+import { CalculateTreesComponent } from './flight-calculator/calculate-trees/calculate-trees.component';
+import { CalculateEmissionComponent } from './flight-calculator/calculate-emission/calculate-emission.component';
+import { SelectFlightsComponent } from './flight-calculator/select-flights/select-flights.component';
 import { NavComponent } from './nav/nav.component';
 import { FooterComponent } from './footer/footer.component';
 import { ContentComponent } from './content/content.component';
@@ -22,13 +26,8 @@ import { Co2InfoComponent } from './co2-info/co2-info.component';
 import { ContactComponent } from './contact/contact.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ForestComponent } from './forest/forest.component';
-import { HttpClientModule } from '@angular/common/http';
-import { RatingModule } from 'ngx-bootstrap/rating';
 import { ConfirmationComponent } from './confirmation/confirmation.component';
 import { DonateComponent } from './donate/donate.component';
-import { ShareButtonsModule } from '@ngx-share/buttons';
-
-
 
 @NgModule({
    declarations: [
