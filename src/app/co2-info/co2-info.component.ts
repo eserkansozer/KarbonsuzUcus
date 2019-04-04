@@ -2,6 +2,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { faGithub } from '@fortawesome/free-brands-svg-icons/faGithub';
 
+declare let $: any;
 @Component({
   selector: 'app-co2-info',
   templateUrl: './co2-info.component.html',
@@ -20,7 +21,12 @@ export class Co2InfoComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     try {
-      document.querySelector('#' + this.fragment).scrollIntoView();
+      setTimeout(() => {
+        // document.querySelector('#' + this.fragment).scrollIntoView();
+        $('html, body').animate({
+          scrollTop: ($('#' + this.fragment).offset().top)
+        }, 500, 'easeInOutExpo');
+      }, 500);
     } catch (e) {}
   }
 
