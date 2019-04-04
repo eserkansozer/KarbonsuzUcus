@@ -21,7 +21,6 @@
             "assets": [
               "src/favicon.ico",
               "src/sitemap.xml",
-              "src/web.config",
               "src/assets"
             ],
             "styles": [
@@ -155,7 +154,6 @@
             "assets": [
               "src/favicon.ico",
               "src/sitemap.xml",
-              "src/web.config",
               "src/assets"
             ]
           }
