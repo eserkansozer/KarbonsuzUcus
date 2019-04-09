@@ -21,7 +21,8 @@
             "assets": [
               "src/favicon.ico",
               "src/sitemap.xml",
-              "src/assets"
+              "src/assets",
+              "src/web.config"
             ],
             "styles": [
               "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
@@ -154,7 +155,8 @@
             "assets": [
               "src/favicon.ico",
               "src/sitemap.xml",
-              "src/assets"
+              "src/assets",
+              "src/web.config"
             ]
           }
         },
