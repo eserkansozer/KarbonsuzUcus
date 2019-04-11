@@ -1,0 +1,66 @@
+<section id="calcWrapper" class="about-section text-center pb-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto text-white" id="pageWrapper">
+
+        <div id="page1" class="mx-auto h-100 text-center mt-2 pb-5">
+
+          <div class="form-group text-center m-2 mx-auto mt-3 mb-5" [hidden]="!distanceInKm">
+            <div class="border p-3">
+              <div>
+                <fa-icon class="mx-1" [icon]="faPlane"></fa-icon>
+                <span *ngFor="let distanceUnit of distanceUnits">
+                  <fa-icon class="mx-1" [icon]="faEllipsisH"></fa-icon>
+                </span>
+                <fa-icon class="mx-1" [icon]="faPlane"></fa-icon>
+              </div>
+              <h4 i18n="@@TotalDistance">Total distance</h4>
+              <div class="display-4" *ngIf="showDistanceInKm">
+                <span [countUp]="distanceInKm" [options]="{duration: 1}">0</span>
+              </div>
+              <span *ngIf="showDistanceInKm">km</span>
+              <div class="display-4" *ngIf="showDistanceInMiles">
+                <span [countUp]="distanceInMiles" [options]="{duration: 1}">0</span>
+              </div>
+              <span *ngIf="showDistanceInMiles">miles</span>
+            </div>
+          </div>
+
+          <div class="form-group mx-auto text-left my-4">
+            <label for="fromAirportName">
+              <fa-icon class="mx-1" [icon]="faPlaneDeparture"></fa-icon><span i18n="@@FromFlight">Departure from</span>:
+            </label>
+            <input autocomplete="off" id="fromAirportName" [(ngModel)]="fromAirportName" [typeahead]="airports"
+              typeaheadOptionField="Definition" typeaheadGroupField="Country" placeholder="Please type an airport"
+              (typeaheadOnSelect)="onFromSelect($event)" [typeaheadScrollable]="true" class="form-control"
+              i18n-placeholder="@@PleaseType">
+          </div>
+          <div class="form-group mx-auto text-left my-4">
+            <label for="toAirportName">
+              <fa-icon class="mx-1" [icon]="faPlaneArrival"></fa-icon><span i18n="@@ToFlight">Arrival to</span>:
+            </label>
+            <input autocomplete="off" id="toAirportName" [(ngModel)]="toAirportName" [typeahead]="airports"
+              typeaheadOptionField="Definition" typeaheadGroupField="Country" placeholder="Please type an airport"
+              (typeaheadOnSelect)="onToSelect($event)" [typeaheadScrollable]="true" class="form-control"
+              i18n-placeholder="@@PleaseType">
+          </div>
+          <div class="form-group mx-auto text-left my-4">
+            <label class="form-check-label" for="return" i18n="@@IsReturnTrip">
+              <fa-icon class="mx-1" [icon]="faExchangeAlt"></fa-icon>Return trip
+            </label>
+            <input type="checkbox" class="form-check-input" id="return" [(ngModel)]="isReturnTrip"
+              (change)="calculateDistance()">
+          </div>
+
+          <div class="text-center mt-5" style="margin-bottom: 10em">
+            <button (click)="onSubmit()" class="btn btn-lg btn-primary" [disabled]="!distanceInKm">
+              <ng-container>CO<sub>2</sub>&nbsp;</ng-container>
+              <ng-container i18n="@@CalculateEmission"> emission</ng-container>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>

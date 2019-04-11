@@ -4,7 +4,8 @@
         <h1 class="mx-auto my-0 text-uppercase">CO<sub>2</sub></h1>
         <h2 class="text-white-50 mx-auto mt-2 mb-3"><span i18n="@@ContentText">Our forests are shrinking.</span><br><span i18n="@@ContentTextAddition">Our flights are adding to global warming.</span></h2>
         <h3 i18n="@@ContentText2" class="text-white-50 mx-auto mt-2 mb-5">With our simple calculation tool you can calculate the carbon footprint of your flights and offset.</h3>
-        <a i18n="@@ContentStartHere" class="btn btn-primary js-scroll-trigger" routerLink="/flight-calculator">Start here</a>
+        <a i18n="@@ContentStartHere" class="btn btn-primary js-scroll-trigger" *ngIf="this.locale === 'en-US'" routerLink="/flight-calculator">Start here</a>
+        <a i18n="@@ContentStartHere" class="btn btn-primary js-scroll-trigger" *ngIf="this.locale === 'tr'" routerLink="/ucus-hesapla">Start here</a>
       </div>
     </div>
   </header>

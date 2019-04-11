@@ -28,6 +28,9 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { ForestComponent } from './forest/forest.component';
 import { ConfirmationComponent } from './confirmation/confirmation.component';
 import { DonateComponent } from './donate/donate.component';
+import { Co2CalculateComponent } from './co2-calculate/co2-calculate.component';
+import { DistanceCalculateComponent } from './distance-calculate/distance-calculate.component';
+import { TreeCalculateComponent } from './tree-calculate/tree-calculate.component';
 
 @NgModule({
    declarations: [
@@ -45,7 +48,10 @@ import { DonateComponent } from './donate/donate.component';
       ConfirmationComponent,
       SelectFlightsComponent,
       CalculateEmissionComponent,
-      CalculateTreesComponent
+      CalculateTreesComponent,
+      Co2CalculateComponent,
+      DistanceCalculateComponent,
+      TreeCalculateComponent
    ],
    imports: [
       BrowserModule,
@@ -63,9 +69,14 @@ import { DonateComponent } from './donate/donate.component';
         [
           {path: '', component: ContentComponent},
           {path: 'home', component: ContentComponent},
-          {path: 'flight-calculator', component: FlightCalculatorComponent},
-          {path: 'karbon-hesapla', component: FlightCalculatorComponent},
-          {path: 'forest', component: ForestComponent},
+          {path: 'flight-calculator', component: DistanceCalculateComponent},
+          {path: 'flight-calculator/from/:departure/to/:arrival', component: DistanceCalculateComponent},
+          {path: 'ucus-hesapla', component: DistanceCalculateComponent},
+          {path: 'ucus-hesapla/kalkis/:departure/varis/:arrival', component: DistanceCalculateComponent},
+          {path: 'carbon-calculator/:distance', component: Co2CalculateComponent},
+          {path: 'karbon-hesapla/:distance', component: Co2CalculateComponent},
+          {path: 'calculate-trees/:carbon', component: TreeCalculateComponent},
+          {path: 'agac-hesapla/:carbon', component: TreeCalculateComponent},
           {path: 'climate-change', component: Co2InfoComponent},
           {path: 'kuresel-isinma', component: Co2InfoComponent},
           {path: 'contact', component: ContactComponent},

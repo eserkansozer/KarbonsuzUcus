@@ -20,14 +20,16 @@ export class Co2InfoComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    try {
-      setTimeout(() => {
-        // document.querySelector('#' + this.fragment).scrollIntoView();
-        $('html, body').animate({
-          scrollTop: ($('#' + this.fragment).offset().top)
-        }, 500, 'easeInOutExpo');
-      }, 500);
-    } catch (e) {}
+    if (this.fragment) {
+      try {
+        setTimeout(() => {
+          // document.querySelector('#' + this.fragment).scrollIntoView();
+          $('html, body').animate({
+            scrollTop: ($('#' + this.fragment).offset().top)
+          }, 500, 'easeInOutExpo');
+        }, 500);
+      } catch (e) { }
+    }
   }
 
 }
