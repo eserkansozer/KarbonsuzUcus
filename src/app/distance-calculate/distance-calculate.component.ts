@@ -56,7 +56,7 @@ export class DistanceCalculateComponent implements OnInit {
       this.http.get('assets/airports.json').subscribe(json => {
         this.airports = Array.from(json as Array<any>, a => new AirportModel(a.name, a.city, a.country, a.IATA, a.lon, a.lat));
         if (this.departureCode && this.arrivalCode) {
-          this.PrefillAirportsFromParameters();
+          this.PrefillAirportsFromQueryParameters();
         }
       });
     } else if (this.locale === 'tr') {
@@ -69,7 +69,7 @@ export class DistanceCalculateComponent implements OnInit {
             }
           });
         if (this.departureCode && this.arrivalCode) {
-            this.PrefillAirportsFromParameters();
+            this.PrefillAirportsFromQueryParameters();
           }
       });
     }
@@ -90,10 +90,6 @@ export class DistanceCalculateComponent implements OnInit {
   onToSelect(event: TypeaheadMatch): void {
     this.selectedToAirport = event.item;
     this.calculateDistance();
-  }
-
-  onSubmit() {
-    // this.distanceSubmit.emit();
   }
 
   calculateDistance(): number {
@@ -118,13 +114,14 @@ export class DistanceCalculateComponent implements OnInit {
     return this.distanceInKm;
   }
 
-  private PrefillAirportsFromParameters() {
+  private PrefillAirportsFromQueryParameters() {
     this.selectedFromAirport = this.airports.find(a => a.IATA === this.departureCode);
     this.fromAirportName = this.selectedFromAirport.Definition;
     this.selectedToAirport = this.airports.find(a => a.IATA === this.arrivalCode);
     this.toAirportName = this.selectedToAirport.Definition;
     this.calculateDistance();
   }
+
   private slideToContent() {
     const width = window.innerWidth || document.body.clientWidth;
     if (width < 992) {

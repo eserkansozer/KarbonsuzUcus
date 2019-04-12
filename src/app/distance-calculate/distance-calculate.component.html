@@ -53,7 +53,11 @@
           </div>
 
           <div class="text-center mt-5" style="margin-bottom: 10em">
-            <button (click)="onSubmit()" class="btn btn-lg btn-primary" [disabled]="!distanceInKm">
+            <button [routerLink]="['/carbon-calculator/', distanceInKm]" class="btn btn-lg btn-primary" [disabled]="!distanceInKm" *ngIf="locale === 'en-US'">
+              <ng-container>CO<sub>2</sub>&nbsp;</ng-container>
+              <ng-container i18n="@@CalculateEmission"> emission</ng-container>
+            </button>
+            <button [routerLink]="['/karbon-hesapla/', distanceInKm]" class="btn btn-lg btn-primary" [disabled]="!distanceInKm" *ngIf="locale === 'tr'">
               <ng-container>CO<sub>2</sub>&nbsp;</ng-container>
               <ng-container i18n="@@CalculateEmission"> emission</ng-container>
             </button>
