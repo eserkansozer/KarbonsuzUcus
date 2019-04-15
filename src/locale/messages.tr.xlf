@@ -40,7 +40,7 @@
       </trans-unit>
 
 	  <trans-unit id="ContentText2">
-        <target>Basit hesaplama aracımızla uçuşunuzun karbon salınımını hesaplayıp, ağaç bağışınızla telafi edebilirsiniz.</target>
+        <target>Basit hesaplama aracımızla uçuşunuzun karbon salımını hesaplayıp, ağaç bağışınızla telafi edebilirsiniz.</target>
       </trans-unit>
 
 	  <trans-unit id="ContentStartHere">
@@ -77,7 +77,7 @@
       </trans-unit>
 
 	  <trans-unit id="CalculateEmission">
-        <target>salınımını hesapla</target>
+        <target>salımını hesapla</target>
       </trans-unit>
 
 	  <trans-unit id="Reset">
@@ -89,7 +89,7 @@
       </trans-unit>
 
 	  <trans-unit id="TotalEmission">
-        <target>Toplam karbondioksit salınımı</target>
+        <target>Toplam karbondioksit salımı</target>
       </trans-unit>
 
 	  <trans-unit id="x">
