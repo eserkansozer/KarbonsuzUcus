@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject, LOCALE_ID } from '@angular/core';
 
 @Component({
   selector: 'app-content',
@@ -6,8 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./content.component.css']
 })
 export class ContentComponent implements OnInit {
+  locale: string;
 
-  constructor() { }
+  constructor(@Inject(LOCALE_ID) locale: string) {
+    this.locale = locale;
+  }
 
   ngOnInit() {
   }

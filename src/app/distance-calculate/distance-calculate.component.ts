@@ -1,9 +1,10 @@
-import { Component, OnInit, Inject, LOCALE_ID, isDevMode, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, Inject, LOCALE_ID} from '@angular/core';
 import { AirportModel } from 'src/app/Models/AirportModel';
 import { Constants } from 'src/app/Common/Constants';
 import { HttpClient } from '@angular/common/http';
 import { TypeaheadMatch } from 'ngx-bootstrap/typeahead/public_api';
 import { faPlaneDeparture, faPlaneArrival, faExchangeAlt, faEllipsisH, faPlane, faCloud } from '@fortawesome/free-solid-svg-icons';
+import { ActivatedRoute } from '@angular/router';
 
 
 declare let LatLon: any; // This variable is created externally elsewhere. This is just declaration for the compiler.
@@ -11,25 +12,25 @@ declare let Dms: any; // This variable is created externally elsewhere. This is 
 declare let $: any;
 
 @Component({
-  selector: 'app-select-flights',
-  templateUrl: './select-flights.component.html',
-  styleUrls: ['./select-flights.component.css']
+  selector: 'app-distance-calculate',
+  templateUrl: './distance-calculate.component.html',
+  styleUrls: ['./distance-calculate.component.css']
 })
-export class SelectFlightsComponent implements OnInit {
-  @Output() distanceRefresh = new EventEmitter();
-  @Output() distanceSubmit = new EventEmitter();
+export class DistanceCalculateComponent implements OnInit {
 
   distanceInKm: number;
   distanceInMiles: number;
   showDistanceInKm: boolean;
   showDistanceInMiles: boolean;
-  airports: object[];
+  airports: AirportModel[];
   fromAirportName: string;
   toAirportName: string;
   selectedFromAirport: AirportModel;
   selectedToAirport: AirportModel;
   isReturnTrip: boolean;
   locale: string;
+  departureCode: string;
+  arrivalCode: string;
 
   faPlaneDeparture = faPlaneDeparture;
   faPlaneArrival = faPlaneArrival;
@@ -38,40 +39,28 @@ export class SelectFlightsComponent implements OnInit {
   faPlane = faPlane;
   faCloud = faCloud;
 
-  public get distanceUnits(): Array<any> {
-    if (!this.distanceInMiles) {
-     return new Array(0);
-    }
-    return new Array(Math.ceil(this.distanceInMiles / 1000));
-  }
-
-  constructor(private http: HttpClient, @Inject(LOCALE_ID) locale: string) {
+  constructor(private route: ActivatedRoute, private http: HttpClient, @Inject(LOCALE_ID) locale: string) {
     this.locale = locale;
     this.showDistanceInKm = locale === 'tr';
     this.showDistanceInMiles = locale === 'en-US';
     this.isReturnTrip = true;
 
-    // if (isDevMode) {
-    //   this.selectedFromAirport = new AirportModel('Adnan Menderes Intl ', 'Izmir', 'Turkey', 'ADB', 27.156999588, 38.2924003601);
-    //   this.fromAirportName = this.selectedFromAirport.Definition;
-    //   this.selectedToAirport =
-    //     new AirportModel('London Gatwick ', 'London', 'United Kingdom', 'LGW', -0.19027799367904663, 51.148101806640625);
-    //   this.toAirportName = this.selectedToAirport.Definition;
-    //   this.calculateDistance();
-    // }
-  }
-
+    this.route.params.subscribe(params => {
+      this.departureCode = params.departure ? params.departure.toUpperCase() : null;
+      this.arrivalCode = params.arrival ? params.arrival.toUpperCase() : null;
+    });
+   }
 
   ngOnInit() {
     if (this.locale === 'en-US') {
       this.http.get('assets/airports.json').subscribe(json => {
         this.airports = Array.from(json as Array<any>, a => new AirportModel(a.name, a.city, a.country, a.IATA, a.lon, a.lat));
+        if (this.departureCode && this.arrivalCode) {
+          this.PrefillAirportsFromQueryParameters();
+        }
       });
     } else if (this.locale === 'tr') {
       this.http.get('assets/airports-tr.json').subscribe(json => {
-
-        this.airports = Array.from(json as Array<any>, a => new AirportModel(a.name, a.city, a.country, a.IATA, a.lon, a.lat));
-
         const airportList = json as any;
         this.airports = Array.from(airportList.data.ports as Array<any>,
           a => {
@@ -79,30 +68,33 @@ export class SelectFlightsComponent implements OnInit {
               return new AirportModel(a.port.name, a.city.name, a.country.name, a.code, a.coordinate.lon, a.coordinate.lat);
             }
           });
+        if (this.departureCode && this.arrivalCode) {
+            this.PrefillAirportsFromQueryParameters();
+          }
       });
     }
   }
 
+  public get distanceUnits(): Array<any> {
+    if (!this.distanceInMiles) {
+     return new Array(0);
+    }
+    return new Array(Math.ceil(this.distanceInMiles / 1000));
+  }
+
   onFromSelect(event: TypeaheadMatch): void {
     this.selectedFromAirport = event.item;
-    this.onDistanceParameterChange();
+    this.calculateDistance();
   }
 
   onToSelect(event: TypeaheadMatch): void {
     this.selectedToAirport = event.item;
-    this.onDistanceParameterChange();
-  }
-
-  onDistanceParameterChange() {
-    this.distanceRefresh.emit();
-  }
-
-  onSubmit() {
-    this.distanceSubmit.emit();
+    this.calculateDistance();
   }
 
   calculateDistance(): number {
     this.slideToContent();
+
     if (this.selectedFromAirport && this.selectedToAirport) {
       const p1 = new LatLon(Dms.parseDMS(this.selectedFromAirport.Lat), Dms.parseDMS(this.selectedFromAirport.Lon));
       const p2 = new LatLon(Dms.parseDMS(this.selectedToAirport.Lat), Dms.parseDMS(this.selectedToAirport.Lon));
@@ -122,6 +114,14 @@ export class SelectFlightsComponent implements OnInit {
     return this.distanceInKm;
   }
 
+  private PrefillAirportsFromQueryParameters() {
+    this.selectedFromAirport = this.airports.find(a => a.IATA === this.departureCode);
+    this.fromAirportName = this.selectedFromAirport.Definition;
+    this.selectedToAirport = this.airports.find(a => a.IATA === this.arrivalCode);
+    this.toAirportName = this.selectedToAirport.Definition;
+    this.calculateDistance();
+  }
+
   private slideToContent() {
     const width = window.innerWidth || document.body.clientWidth;
     if (width < 992) {
@@ -134,5 +134,4 @@ export class SelectFlightsComponent implements OnInit {
       }, 500);
     }
   }
-
 }

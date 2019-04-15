@@ -3,7 +3,7 @@ export class AirportModel {
   constructor(private name: string,
               private city: string,
               private country: string,
-              private IATA: string,
+              public IATA: string,
               private lon: number,
               private lat: number) {    }
 
