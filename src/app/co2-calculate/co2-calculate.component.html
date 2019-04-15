@@ -50,7 +50,13 @@
           </div>
 
           <div class="text-center mx-auto my-5">
-            <button class="btn btn-lg btn-primary">
+            <button [routerLink]="['/calculate-trees/', emission]" class="btn btn-lg btn-primary" *ngIf="locale === 'en-US'">
+              <ng-container i18n="@@CalculateOffset">Calculate offset</ng-container>
+            </button>
+          </div>
+
+          <div class="text-center mx-auto my-5">
+            <button [routerLink]="['/agac-hesapla/', emission]" class="btn btn-lg btn-primary" *ngIf="locale === 'tr'">
               <ng-container i18n="@@CalculateOffset">Calculate offset</ng-container>
             </button>
           </div>

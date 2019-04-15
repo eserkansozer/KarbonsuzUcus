@@ -15,13 +15,9 @@ import { ShareButtonsModule } from '@ngx-share/buttons';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
-import { CalculateTreesComponent } from './flight-calculator/calculate-trees/calculate-trees.component';
-import { CalculateEmissionComponent } from './flight-calculator/calculate-emission/calculate-emission.component';
-import { SelectFlightsComponent } from './flight-calculator/select-flights/select-flights.component';
 import { NavComponent } from './nav/nav.component';
 import { FooterComponent } from './footer/footer.component';
 import { ContentComponent } from './content/content.component';
-import { FlightCalculatorComponent } from './flight-calculator/flight-calculator.component';
 import { Co2InfoComponent } from './co2-info/co2-info.component';
 import { ContactComponent } from './contact/contact.component';
 import { NotFoundComponent } from './not-found/not-found.component';
@@ -39,16 +35,12 @@ import { TreeCalculateComponent } from './tree-calculate/tree-calculate.componen
       NavComponent,
       FooterComponent,
       ContentComponent,
-      FlightCalculatorComponent,
       Co2InfoComponent,
       ContactComponent,
       NotFoundComponent,
       ForestComponent,
       DonateComponent,
       ConfirmationComponent,
-      SelectFlightsComponent,
-      CalculateEmissionComponent,
-      CalculateTreesComponent,
       Co2CalculateComponent,
       DistanceCalculateComponent,
       TreeCalculateComponent
