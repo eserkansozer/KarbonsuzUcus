@@ -137,7 +137,7 @@
       </trans-unit>
 
 	  <trans-unit id="DonateTrees">
-        <target> ağaç bağışla</target>
+        <target> adet ağaç bağışla</target>
       </trans-unit>
 
 	  <trans-unit id="Thanks">
