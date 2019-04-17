@@ -115,9 +115,9 @@ export class DistanceCalculateComponent implements OnInit {
   }
 
   private PrefillAirportsFromQueryParameters() {
-    this.selectedFromAirport = this.airports.find(a => a.IATA === this.departureCode);
+    this.selectedFromAirport = this.airports.find(a => a && a.IATA === this.departureCode);
     this.fromAirportName = this.selectedFromAirport.Definition;
-    this.selectedToAirport = this.airports.find(a => a.IATA === this.arrivalCode);
+    this.selectedToAirport = this.airports.find(a => a && a.IATA === this.arrivalCode);
     this.toAirportName = this.selectedToAirport.Definition;
     this.calculateDistance();
   }
