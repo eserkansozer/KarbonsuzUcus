@@ -21,13 +21,3 @@
 .in-link:hover{
   opacity: 0.8;
 }
-
-.main-supporter{
-  width: 28rem;
-}
-
-@media (max-width: 768px) {
-.main-supporter{
-  width: 18rem;
-}
-}

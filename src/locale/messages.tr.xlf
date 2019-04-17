@@ -128,10 +128,6 @@
         <target>Banka havalesİ</target>
       </trans-unit>
 
-	  <trans-unit id="CreditCard">
-        <target>Online ödeme</target>
-      </trans-unit>
-
 	  <trans-unit id="Donate">
         <target> </target>
       </trans-unit>

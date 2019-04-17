@@ -21,20 +21,19 @@
 
           <div class="my-5">
 
-              <div class="card main-supporter">
+              <div class="card" style="width: 18rem;">
                   <img class="card-img-top p-2" src="assets/images/logo_egeorman.jpg" alt="EGE ORMAN VAKFI">
                   <div class="card-body">
-                    <h5 class="card-title">EGE ORMAN VAKFI</h5>
-                    <p class="card-text">Anlaşmalı Destekçi Vakfımız<br></p>
+                    <h5 class="card-title">EGE ORMAN</h5>
+                    <h5 class="card-title">VAKFI</h5>
                     <p class="card-text" style="height: 36px"><br></p>
                     <a class="btn btn-success gtm_donate" (click)="onDonate('egeorman')" [routerLink]="['/confirmation', 'egeorman', treeCount]">
                       <div style='display: block'>
                         <ng-container i18n="@@Donate">Donate</ng-container>  {{treeCount}}
                         <ng-container i18n="@@DonateTrees">trees</ng-container>
                       </div>
-                      <!-- <span class="badge badge-light">{{treeCount * perTreeFeeEgeOrman}} ₺</span> -->
-                      <span class="badge badge-success ml-1" i18n="@@CreditCard">Online payment</span>
-                      <span class="badge badge-info ml-1" i18n="@@FeaturedCharity">Kampanya</span>
+                      <span class="badge badge-light">{{treeCount * perTreeFeeEgeOrman}} ₺</span>
+                      <span class="badge badge-success ml-1">Online</span>
                     </a>
                   </div>
                 </div>
@@ -45,12 +44,12 @@
                 <h5 class="card-title">TEMA</h5>
                 <p class="card-text">Türkiye Erozyonla Mücadele, Ağaçlandırma ve Doğal Varlıkları Koruma Vakfı</p>
                 <a class="btn btn-success gtm_donate" (click)="onDonate('tema')" [routerLink]="['/confirmation', 'tema', treeCount]">
-                  <div class="block">
+                  <div class="block mt-1">
                     <ng-container i18n="@@Donate">Donate</ng-container>  {{treeCount}}
                     <ng-container i18n="@@DonateTrees">trees</ng-container>
                   </div>
-                  <!-- <span class="badge badge-light">{{treeCount * perTreeFeeTema }} ₺</span> -->
-                  <span class="badge badge-success ml-1" i18n="@@CreditCard">Online payment</span>
+                  <span class="badge badge-light">{{treeCount * perTreeFeeTema }} ₺</span>
+                  <span class="badge badge-success ml-1">Online</span>
                 </a>
               </div>
             </div>
@@ -59,14 +58,14 @@
               <img class="card-img-top p-2" src="assets/images/logo_cekul.png" alt="ÇEKÜL">
               <div class="card-body">
                 <h5 class="card-title">ÇEKÜL</h5>
-                <p class="card-text">Çevre ve Kültür Değerlerini Koruma ve Tanıtma Vakfı<br><br></p>
+                <p class="card-text">Çevre ve Kültür Değerlerini Koruma ve Tanıtma Vakfı<br><br><br></p>
                 <a class="btn btn-success gtm_donate" (click)="onDonate('cekul')" [routerLink]="['/confirmation', 'cekul', treeCount]">
                   <div style='display: block'>
                     <ng-container i18n="@@Donate">Donate</ng-container>  {{treeCount}}
                     <ng-container i18n="@@DonateTrees">trees</ng-container>
                   </div>
-                  <!-- <span class="badge badge-light">{{treeCount * perTreeFeeCekul}} ₺</span> -->
-                  <span class="badge badge-success ml-1" i18n="@@CreditCard">Online payment</span>
+                  <span class="badge badge-light">{{treeCount * perTreeFeeCekul}} ₺</span>
+                  <span class="badge badge-success ml-1">Online</span>
                 </a>
               </div>
             </div>
@@ -81,7 +80,7 @@
                     <ng-container i18n="@@Donate">Donate</ng-container>  {{treeCount}}
                     <ng-container i18n="@@DonateTrees">trees</ng-container>
                   </div>
-                  <!-- <span class="badge badge-light">{{treeCount * perTreeFeeDocev}} ₺</span> -->
+                  <span class="badge badge-light">{{treeCount * perTreeFeeDocev}} ₺</span>
                   <span class="badge badge-warning ml-1" i18n="@@Remittance">Remittance</span>
                 </a>
               </div>
