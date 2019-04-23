@@ -4,8 +4,8 @@ import { Constants } from 'src/app/Common/Constants';
 import { HttpClient } from '@angular/common/http';
 import { TypeaheadMatch } from 'ngx-bootstrap/typeahead/public_api';
 import { faPlaneDeparture, faPlaneArrival, faExchangeAlt, faEllipsisH, faPlane, faCloud } from '@fortawesome/free-solid-svg-icons';
+import { faShareAlt } from '@fortawesome/free-solid-svg-icons';
 import { ActivatedRoute } from '@angular/router';
-
 
 declare let LatLon: any; // This variable is created externally elsewhere. This is just declaration for the compiler.
 declare let Dms: any; // This variable is created externally elsewhere. This is just declaration for the compiler.
@@ -25,12 +25,16 @@ export class DistanceCalculateComponent implements OnInit {
   airports: AirportModel[];
   fromAirportName: string;
   toAirportName: string;
+  connectingAirportName: string;
   selectedFromAirport: AirportModel;
   selectedToAirport: AirportModel;
+  selectedConnectingAirport: AirportModel;
   isReturnTrip: boolean;
   locale: string;
   departureCode: string;
   arrivalCode: string;
+  connectionCode: string;
+  connectionEnabled: boolean;
 
   faPlaneDeparture = faPlaneDeparture;
   faPlaneArrival = faPlaneArrival;
@@ -38,16 +42,19 @@ export class DistanceCalculateComponent implements OnInit {
   faExchangeAlt = faExchangeAlt;
   faPlane = faPlane;
   faCloud = faCloud;
+  faConnectDevelop = faShareAlt;
 
   constructor(private route: ActivatedRoute, private http: HttpClient, @Inject(LOCALE_ID) locale: string) {
     this.locale = locale;
     this.showDistanceInKm = locale === 'tr';
     this.showDistanceInMiles = locale === 'en-US';
     this.isReturnTrip = true;
+    this.connectionEnabled = false;
 
     this.route.params.subscribe(params => {
       this.departureCode = params.departure ? params.departure.toUpperCase() : null;
       this.arrivalCode = params.arrival ? params.arrival.toUpperCase() : null;
+      this.connectionCode = params.connection ? params.connection.toUpperCase() : null;
     });
    }
 
@@ -92,13 +99,25 @@ export class DistanceCalculateComponent implements OnInit {
     this.calculateDistance();
   }
 
+  onConnectingSelect(event: TypeaheadMatch): void {
+    this.selectedConnectingAirport = event.item;
+    this.calculateDistance();
+  }
+
   calculateDistance(): number {
     this.slideToContent();
 
     if (this.selectedFromAirport && this.selectedToAirport) {
-      const p1 = new LatLon(Dms.parseDMS(this.selectedFromAirport.Lat), Dms.parseDMS(this.selectedFromAirport.Lon));
-      const p2 = new LatLon(Dms.parseDMS(this.selectedToAirport.Lat), Dms.parseDMS(this.selectedToAirport.Lon));
-      this.distanceInKm = parseFloat(p1.distanceTo(p2).toPrecision(4)) / 1000;
+      const departurePoint = new LatLon(Dms.parseDMS(this.selectedFromAirport.Lat), Dms.parseDMS(this.selectedFromAirport.Lon));
+      const arrivalPoint = new LatLon(Dms.parseDMS(this.selectedToAirport.Lat), Dms.parseDMS(this.selectedToAirport.Lon));
+      if (this.connectionEnabled && this.selectedConnectingAirport) {
+        const connectionPoint =
+          new LatLon(Dms.parseDMS(this.selectedConnectingAirport.Lat), Dms.parseDMS(this.selectedConnectingAirport.Lon));
+        this.distanceInKm = (parseFloat(departurePoint.distanceTo(connectionPoint).toPrecision(4)) / 1000)
+          +  (parseFloat(connectionPoint.distanceTo(arrivalPoint).toPrecision(4)) / 1000);
+      } else {
+        this.distanceInKm = parseFloat(departurePoint.distanceTo(arrivalPoint).toPrecision(4)) / 1000;
+      }
       this.distanceInMiles = this.distanceInKm * Constants.MILES_PER_KM;
       if (this.isReturnTrip) {
         this.distanceInKm *= 2;
@@ -115,10 +134,12 @@ export class DistanceCalculateComponent implements OnInit {
   }
 
   private PrefillAirportsFromQueryParameters() {
-    this.selectedFromAirport = this.airports.find(a => a.IATA === this.departureCode);
+    this.selectedFromAirport = this.airports.find(a => a && a.IATA === this.departureCode);
     this.fromAirportName = this.selectedFromAirport.Definition;
-    this.selectedToAirport = this.airports.find(a => a.IATA === this.arrivalCode);
+    this.selectedToAirport = this.airports.find(a => a && a.IATA === this.arrivalCode);
     this.toAirportName = this.selectedToAirport.Definition;
+    this.selectedConnectingAirport = this.airports.find(a => a && a.IATA === this.connectionCode);
+    this.connectingAirportName = this.selectedConnectingAirport ? this.selectedConnectingAirport.Definition : null;
     this.calculateDistance();
   }
 
