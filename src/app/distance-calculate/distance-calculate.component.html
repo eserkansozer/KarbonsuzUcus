@@ -35,6 +35,15 @@
               (typeaheadOnSelect)="onFromSelect($event)" [typeaheadScrollable]="true" class="form-control"
               i18n-placeholder="@@PleaseType">
           </div>
+          <div class="form-group mx-auto text-left my-4" *ngIf="connectionEnabled">
+            <label for="fromAirportName">
+              <fa-icon class="mx-1" [icon]="faConnectDevelop"></fa-icon><span i18n="@@ConnectingFlight">Connecting at</span>:
+            </label>
+            <input autocomplete="off" id="connectingAirportName" [(ngModel)]="connectingAirportName" [typeahead]="airports"
+              typeaheadOptionField="Definition" typeaheadGroupField="Country" placeholder="Please type an airport"
+              (typeaheadOnSelect)="onConnectingSelect($event)" [typeaheadScrollable]="true" class="form-control"
+              i18n-placeholder="@@PleaseType">
+          </div>
           <div class="form-group mx-auto text-left my-4">
             <label for="toAirportName">
               <fa-icon class="mx-1" [icon]="faPlaneArrival"></fa-icon><span i18n="@@ToFlight">Arrival to</span>:
@@ -51,7 +60,13 @@
             <input type="checkbox" class="form-check-input" id="return" [(ngModel)]="isReturnTrip"
               (change)="calculateDistance()">
           </div>
-
+          <div class="form-group mx-auto text-left my-4">
+            <label class="form-check-label" for="connect" i18n="@@ConnectionEnabled">
+              <fa-icon class="mx-1" [icon]="faConnectDevelop"></fa-icon>Connecting flight
+            </label>
+            <input type="checkbox" class="form-check-input" id="connect" [(ngModel)]="connectionEnabled"
+            (change)="calculateDistance()">
+          </div>
           <div class="text-center mt-5" style="margin-bottom: 10em">
             <button [routerLink]="['/carbon-calculator/', distanceInKm]" class="btn btn-lg btn-primary" [disabled]="!distanceInKm" *ngIf="locale === 'en-US'">
               <ng-container>CO<sub>2</sub>&nbsp;</ng-container>

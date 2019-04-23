@@ -160,6 +160,10 @@
         <target>Başa dön</target>
       </trans-unit>
 
+	  <trans-unit id="ConnectionEnabled">
+        <target>Aktarmalı uçuş</target>
+      </trans-unit>
+
     </body>
   </file>
 </xliff>
