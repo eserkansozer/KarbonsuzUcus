@@ -55,6 +55,9 @@ export class DistanceCalculateComponent implements OnInit {
       this.departureCode = params.departure ? params.departure.toUpperCase() : null;
       this.arrivalCode = params.arrival ? params.arrival.toUpperCase() : null;
       this.connectionCode = params.connection ? params.connection.toUpperCase() : null;
+      if (this.connectionCode) {
+        this.connectionEnabled = true;
+      }
     });
    }
 

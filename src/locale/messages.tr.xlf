@@ -160,7 +160,7 @@
         <target>Başa dön</target>
       </trans-unit>
 
-	  <trans-unit id="ConnectionEnabled">
+	  <trans-unit id="ConnectingFlight">
         <target>Aktarmalı uçuş</target>
       </trans-unit>
 
