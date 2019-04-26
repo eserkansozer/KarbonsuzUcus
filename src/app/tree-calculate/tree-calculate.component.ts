@@ -2,8 +2,11 @@ import { Component, OnInit} from '@angular/core';
 import { faTree } from '@fortawesome/free-solid-svg-icons';
 import { Constants } from 'src/app/Common/Constants';
 import { ActivatedRoute } from '@angular/router';
+import { DonationService } from '../services/donation.service';
 
 declare let $: any;
+declare let dataLayer: any;
+
 @Component({
   selector: 'app-tree-calculate',
   templateUrl: './tree-calculate.component.html',
@@ -15,6 +18,7 @@ export class TreeCalculateComponent implements OnInit {
   emission: number;
   treesToDonate: number;
   treesCounted = false;
+  referrer: string;
 
   public get treeUnits(): Array<any> {
     if (!this.treesToDonate) {
@@ -23,7 +27,7 @@ export class TreeCalculateComponent implements OnInit {
     return new Array(this.treesToDonate);
   }
 
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute, private donationService: DonationService) {
 
     this.route.params.subscribe(params => {
       this.emission = params.carbon ? params.carbon : null;
@@ -33,12 +37,17 @@ export class TreeCalculateComponent implements OnInit {
   ngOnInit() {
     this.slideToContent();
     this.calculateTrees();
+    this.referrer = sessionStorage.referrer;
   }
 
   calculateTrees() {
     this.treesCounted = false;
     this.treesToDonate = Math.round(this.emission * Constants.TREES_PER_KG_EMISSION) < 1 ?
                           1 : Math.round(this.emission * Constants.TREES_PER_KG_EMISSION) ;
+  }
+
+  onDonate(charity) {
+    this.donationService.donate(charity, this.treesToDonate);
   }
 
   private slideToContent() {

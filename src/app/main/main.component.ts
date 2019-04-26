@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { debug } from 'util';
 
 @Component({
   selector: 'app-main',
@@ -10,6 +11,10 @@ export class MainComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    sessionStorage.referrer = document.referrer;
+    // if (document.referrer.includes('egeorman.org.tr')) {
+    //  sessionStorage.referrer = 'egeorman';
+    // }
   }
 
 }

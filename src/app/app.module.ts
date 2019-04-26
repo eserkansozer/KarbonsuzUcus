@@ -27,6 +27,8 @@ import { DonateComponent } from './donate/donate.component';
 import { Co2CalculateComponent } from './co2-calculate/co2-calculate.component';
 import { DistanceCalculateComponent } from './distance-calculate/distance-calculate.component';
 import { TreeCalculateComponent } from './tree-calculate/tree-calculate.component';
+import { DonationService } from './services/donation.service';
+
 
 @NgModule({
    declarations: [
@@ -80,7 +82,9 @@ import { TreeCalculateComponent } from './tree-calculate/tree-calculate.componen
         ], {scrollPositionRestoration: 'enabled'}
       )
    ],
-   providers: [],
+   providers: [
+     DonationService
+   ],
    bootstrap: [
       AppComponent
    ]
