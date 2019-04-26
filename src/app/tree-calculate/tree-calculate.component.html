@@ -18,11 +18,14 @@
                   </div>
                 </div>
                 <div class="text-center mx-auto my-5">
-                  <button class="btn btn-lg btn-primary" [routerLink]="['/donate/', treesToDonate]" [disabled]="!treesCounted" i18n="@@DonateNow">
+                  <button class="btn btn-lg btn-primary" *ngIf="referrer != 'egeorman'" [routerLink]="['/donate/', treesToDonate]" [disabled]="!treesCounted" i18n="@@DonateNow">
                     Donate now
                   </button>
+                  <button class="btn btn-lg btn-primary" *ngIf="referrer === 'egeorman'" (click)="onDonate('egeorman')" [routerLink]="['/confirmation', 'egeorman', treesToDonate]" [disabled]="!treesCounted" i18n="@@DonateNow">
+                    Donate to Ege Orman
+                  </button>
                 </div>
-                <div class="text-center mx-auto my-3">
+                <div class="text-center mx-auto mt-3 mb-4">
                   <a class="in-link" [routerLink]="['/kuresel-isinma']" fragment="karbon-ayak-izi-telafi-etme-yontemleri">Karbon ayak izimi telafi etmek için başka neler yapabilirim?</a>
                 </div>
 

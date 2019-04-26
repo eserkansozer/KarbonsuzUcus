@@ -174,3 +174,7 @@ body {
     button.sb-wrapper{
       display: contents!important;
     }
+
+    #ratings > span {
+      outline: none;
+    }

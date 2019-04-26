@@ -1,4 +1,4 @@
-<section id="signup" class="signup-section">
+<section id="signup" class="signup-section pt-5">
   <div class="container">
     <div class="row">
       <div class="col-md-10 col-lg-8 mx-auto text-center text-white">
@@ -27,13 +27,13 @@
                     <h5 class="card-title">EGE ORMAN</h5>
                     <h5 class="card-title">VAKFI</h5>
                     <p class="card-text" style="height: 36px"><br></p>
-                    <a class="btn btn-success gtm_donate" (click)="onDonate('egeorman')" [routerLink]="['/confirmation', 'egeorman', treeCount]">
+                    <a class="btn btn-success" (click)="onDonate('egeorman')" [routerLink]="['/confirmation', 'egeorman', treeCount]">
                       <div style='display: block'>
                         <ng-container i18n="@@Donate">Donate</ng-container>  {{treeCount}}
                         <ng-container i18n="@@DonateTrees">trees</ng-container>
                       </div>
                       <span class="badge badge-light">{{treeCount * perTreeFeeEgeOrman}} ₺</span>
-                      <span class="badge badge-success ml-1">Online</span>
+                      <span class="badge badge-success ml-1" i18n="@@OnlinePay">Online payment</span>
                     </a>
                   </div>
                 </div>
@@ -43,13 +43,13 @@
               <div class="card-body">
                 <h5 class="card-title">TEMA</h5>
                 <p class="card-text">Türkiye Erozyonla Mücadele, Ağaçlandırma ve Doğal Varlıkları Koruma Vakfı</p>
-                <a class="btn btn-success gtm_donate" (click)="onDonate('tema')" [routerLink]="['/confirmation', 'tema', treeCount]">
+                <a class="btn btn-success" (click)="onDonate('tema')" [routerLink]="['/confirmation', 'tema', treeCount]">
                   <div class="block mt-1">
                     <ng-container i18n="@@Donate">Donate</ng-container>  {{treeCount}}
                     <ng-container i18n="@@DonateTrees">trees</ng-container>
                   </div>
                   <span class="badge badge-light">{{treeCount * perTreeFeeTema }} ₺</span>
-                  <span class="badge badge-success ml-1">Online</span>
+                  <span class="badge badge-success ml-1" i18n="@@OnlinePay">Online payment</span>
                 </a>
               </div>
             </div>
@@ -59,13 +59,13 @@
               <div class="card-body">
                 <h5 class="card-title">ÇEKÜL</h5>
                 <p class="card-text">Çevre ve Kültür Değerlerini Koruma ve Tanıtma Vakfı<br><br><br></p>
-                <a class="btn btn-success gtm_donate" (click)="onDonate('cekul')" [routerLink]="['/confirmation', 'cekul', treeCount]">
+                <a class="btn btn-success" (click)="onDonate('cekul')" [routerLink]="['/confirmation', 'cekul', treeCount]">
                   <div style='display: block'>
                     <ng-container i18n="@@Donate">Donate</ng-container>  {{treeCount}}
                     <ng-container i18n="@@DonateTrees">trees</ng-container>
                   </div>
                   <span class="badge badge-light">{{treeCount * perTreeFeeCekul}} ₺</span>
-                  <span class="badge badge-success ml-1">Online</span>
+                  <span class="badge badge-success ml-1" i18n="@@OnlinePay">Online payment</span>
                 </a>
               </div>
             </div>
@@ -75,7 +75,7 @@
               <div class="card-body">
                 <h5 class="card-title">DOÇEV</h5>
                 <p class="card-text">Doğa ve Çevre Vakfı<br><br><br><br></p>
-                <a class="btn btn-success gtm_donate" (click)="onDonate('docev')" [routerLink]="['/confirmation', 'docev', treeCount]">
+                <a class="btn btn-success" (click)="onDonate('docev')" [routerLink]="['/confirmation', 'docev', treeCount]">
                   <div style='display: block'>
                     <ng-container i18n="@@Donate">Donate</ng-container>  {{treeCount}}
                     <ng-container i18n="@@DonateTrees">trees</ng-container>

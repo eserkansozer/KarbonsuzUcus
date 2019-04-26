@@ -32,9 +32,9 @@
                 </label>
               </div>
               <div class="col-auto">
-                <rating [max]="10" [(ngModel)]="peopleCount" [customTemplate]="t" (click)="onTripParameterChange()"
+                <rating id="ratings" [max]="10" [(ngModel)]="peopleCount" [customTemplate]="t" (click)="onTripParameterChange()"
                   (keyup)="onTripParameterChange()"></rating>
-                <ng-template #t let-index="index" let-value="value">
+                <ng-template #t let-index="index" let-value="value" class="no-outline">
                   <fa-icon [icon]="index < value ? faUser : faUser" class="{{index < value ? 'white': 'gray'}}">
                   </fa-icon>
                 </ng-template>
