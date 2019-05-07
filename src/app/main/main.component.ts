@@ -12,9 +12,9 @@ export class MainComponent implements OnInit {
 
   ngOnInit() {
     sessionStorage.referrer = document.referrer;
-    // if (document.referrer.includes('egeorman.org.tr')) {
-    //  sessionStorage.referrer = 'egeorman';
-    // }
+    if (document.referrer.includes('egeorman.org.tr')) {
+     sessionStorage.referrer = 'egeorman';
+    }
   }
 
 }
