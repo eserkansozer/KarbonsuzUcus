@@ -14,6 +14,7 @@ import { faPrint } from '@fortawesome/free-solid-svg-icons/faPrint';
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent implements OnInit {
+  referrer: string;
   constructor() {}
 
   ngOnInit() {
@@ -24,5 +25,6 @@ export class FooterComponent implements OnInit {
     library.add(faPrint);
     library.add(faGooglePlusG);
     library.add(faFacebookMessenger);
+    this.referrer = sessionStorage.referrer;
   }
 }
