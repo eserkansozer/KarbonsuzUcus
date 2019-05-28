@@ -3,6 +3,7 @@
   border-color: rgb(100, 161, 157);
   display: inline-block;
   margin: 5px;
+  min-height: 313px;
 }
 .btn{
   background: rgba(100, 161, 157, 0.5);

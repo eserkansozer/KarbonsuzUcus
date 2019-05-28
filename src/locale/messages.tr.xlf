@@ -92,10 +92,6 @@
         <target>Toplam karbondioksit salımı</target>
       </trans-unit>
 
-	  <trans-unit id="x">
-        <target></target>
-      </trans-unit>
-
 	  <trans-unit id="ToOffset">
         <target>Uçuşunuzun karbon izinin telafisi için</target>
       </trans-unit>

@@ -57,11 +57,11 @@
 
           <div class="text-center mx-auto my-5">
             <button [routerLink]="['/agac-hesapla/', emission]" class="btn btn-lg btn-primary" *ngIf="locale === 'tr'">
-              <ng-container i18n="@@CalculateOffset">Calculate offset</ng-container>
+              <ng-container i18n="@@CalculateOffset">Calculate trees to offset</ng-container>
             </button>
           </div>
 
-          <div class="text-center mx-auto my-3">
+          <div class="text-center mx-auto my-3" *ngIf="locale === 'tr'" >
             <a [routerLink]="['/kuresel-isinma']"
               fragment="karbondioksit-salinimi-telafi-icin-gereken-agac-sayisi">Uçuşların karbondioksit salınımı ve
               telafi için gereken ağaç sayısı nasıl

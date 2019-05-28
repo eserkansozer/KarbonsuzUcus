@@ -20,7 +20,7 @@ export class DonationService {
         urlBase = 'https://fonzip.com/cekul/bagis?';
         break;
       case 'egeorman':
-        urlBase = 'https://www.egeorman.org.tr/online-bagis-co2.aspx?';
+        urlBase = 'https://www.egeorman.org.tr/en/online-donation.aspx?';
         break;
       case 'docev':
         urlBase = 'http://www.docev.org.tr/fidanbagisi.aspx?';

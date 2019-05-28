@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, Inject, LOCALE_ID} from '@angular/core';
 import { faTree } from '@fortawesome/free-solid-svg-icons';
 import { Constants } from 'src/app/Common/Constants';
 import { ActivatedRoute } from '@angular/router';
@@ -19,6 +19,7 @@ export class TreeCalculateComponent implements OnInit {
   treesToDonate: number;
   treesCounted = false;
   referrer: string;
+  locale: string;
 
   public get treeUnits(): Array<any> {
     if (!this.treesToDonate) {
@@ -27,8 +28,8 @@ export class TreeCalculateComponent implements OnInit {
     return new Array(this.treesToDonate);
   }
 
-  constructor(private route: ActivatedRoute, private donationService: DonationService) {
-
+  constructor(private route: ActivatedRoute, private donationService: DonationService, @Inject(LOCALE_ID) locale: string) {
+    this.locale = locale;
     this.route.params.subscribe(params => {
       this.emission = params.carbon ? params.carbon : null;
     });

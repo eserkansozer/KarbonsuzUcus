@@ -14,7 +14,7 @@
                <ng-container i18n="@@SelectCharities">Please select one of our preferred charities below</ng-container>
           </h4>
           <!-- <h4 class="pt-5" i18n="@@PleaseClick">Please click</h4> -->
-          <div class="text-center mx-auto my-5">
+          <div class="text-center mx-auto my-5"  *ngIf="locale === 'tr'">
             <a class="in-link" [routerLink]="['/kuresel-isinma']" fragment="agac-dikmenin-kuresel-isinmaya-etkisi">Neden ağaç bağışlamalıyım?</a>
           </div>
 
@@ -24,9 +24,8 @@
               <div class="card" style="width: 18rem;">
                   <img class="card-img-top p-2" src="assets/images/logo_egeorman.jpg" alt="EGE ORMAN VAKFI">
                   <div class="card-body">
-                    <h5 class="card-title">EGE ORMAN</h5>
-                    <h5 class="card-title">VAKFI</h5>
-                    <p class="card-text" style="height: 36px"><br></p>
+                    <p class="card-texy" i18n="@@AegeanForest">Aegean Forest Foundation</p>
+                    <p class="card-text" style="height: 56px"><br></p>
                     <a class="btn btn-success" (click)="onDonate('egeorman')" [routerLink]="['/confirmation', 'egeorman', treeCount]">
                       <div style='display: block'>
                         <ng-container i18n="@@Donate">Donate</ng-container>  {{treeCount}}
@@ -41,8 +40,8 @@
             <div class="card" style="width: 18rem;">
               <img class="card-img-top p-2" src="assets/images/logo_tema.jpg" alt="TEMA">
               <div class="card-body">
-                <h5 class="card-title">TEMA</h5>
-                <p class="card-text">Türkiye Erozyonla Mücadele, Ağaçlandırma ve Doğal Varlıkları Koruma Vakfı</p>
+                <!--<h5 class="card-title">TEMA</h5>-->
+                <p class="card-text" i18n="@@TurkiyeErozyonla">The Turkish Foundation for Combating Soil Erosion, for Reforestation and the Protection of Natural Habitats</p>
                 <a class="btn btn-success" (click)="onDonate('tema')" [routerLink]="['/confirmation', 'tema', treeCount]">
                   <div class="block mt-1">
                     <ng-container i18n="@@Donate">Donate</ng-container>  {{treeCount}}
@@ -54,7 +53,7 @@
               </div>
             </div>
 
-            <div class="card" style="width: 18rem;">
+            <div class="card" style="width: 18rem;" *ngIf="locale === 'tr'">
               <img class="card-img-top p-2" src="assets/images/logo_cekul.png" alt="ÇEKÜL">
               <div class="card-body">
                 <h5 class="card-title">ÇEKÜL</h5>
@@ -70,7 +69,7 @@
               </div>
             </div>
 
-            <div class="card" style="width: 18rem;">
+            <div class="card" style="width: 18rem;"  *ngIf="locale === 'tr'">
               <img class="card-img-top p-2" src="assets/images/logo_docev.jpg" alt="DOÇEV">
               <div class="card-body">
                 <h5 class="card-title">DOÇEV</h5>
@@ -87,10 +86,10 @@
             </div>
           </div>
           <div class="my-5">
-            <a class="btn btn-lg btn-success m-2" href="http://www.tema.org.tr" target="_blank">TEMA</a>
-            <a class="btn btn-lg btn-success m-2" href="https://www.cekulvakfi.org.tr" target="_blank">ÇEKÜL</a>
-            <a class="btn btn-lg btn-success m-2" href="https://www.egeorman.org.tr" target="_blank">EGE ORMAN VAKFI</a>
-            <a class="btn btn-lg btn-success m-2" href="http://www.docev.org.tr" target="_blank">DOÇEV</a>
+              <a class="btn btn-lg btn-success m-2" href="https://www.egeorman.org.tr/en" target="_blank">AEGEAN FOREST FOUNDATION</a>
+            <a class="btn btn-lg btn-success m-2" href="http://www.tema.org.tr/web_14966-2_2/index.aspx" target="_blank">TEMA</a>
+            <a class="btn btn-lg btn-success m-2" href="https://www.cekulvakfi.org.tr" target="_blank" *ngIf="locale === 'tr'">ÇEKÜL</a>
+            <a class="btn btn-lg btn-success m-2" href="http://www.docev.org.tr" target="_blank" *ngIf="locale === 'tr'">DOÇEV</a>
           </div>
         </div>
 
