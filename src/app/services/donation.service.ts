@@ -13,9 +13,6 @@ export class DonationService {
     let urlBase: string;
     const parameters = `kaynak=karbonsuzucus&adet=${treesToDonate}`;
     switch (charity) {
-      case 'tema':
-        urlBase = 'https://online.tema.org.tr/web_14966_1/member_panel_company.aspx?support_id=8&';
-        break;
       case 'cekul':
         urlBase = 'https://fonzip.com/cekul/bagis?';
         break;
