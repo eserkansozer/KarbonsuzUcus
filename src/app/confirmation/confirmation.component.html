@@ -2,40 +2,40 @@
   <div class="container my-5">
     <div class="row">
       <div class="col-md-10 col-lg-8 mx-auto text-center text-white">
-          <div class="my-5">
-       <div>
-          <h2 i18n="@@Thanks">Thank your for your donation!</h2>
-          <p i18n="@@DonatedAlready">Hundreds of trees are already donated using karbonsuzucus.com</p>
-       </div>
+        <div class="my-5">
+          <div>
+            <h2 i18n="@@Thanks">Thank your for your donation!</h2>
+            <p i18n="@@DonatedAlready">Hundreds of trees are already donated using karbonsuzucus.com</p>
+          </div>
 
-       <div class="text-center mx-auto my-5">
-        <a class="in-link" [routerLink]="['/kuresel-isinma']" fragment="karbon-ayak-izimi-kucultmek-icin-neler-yapabilirim">
-          <h5 i18n="@@HowToReduceCo2Emissions">
-            What can I do to reduce my carbon footprint?
+          <div class="mt-4 px-5">
+            <div class="your-tree" i18n-title="@@YourDonatedTrees" title="Your donated trees">
+              <fa-icon *ngFor="let item of yourTreeList" [icon]="faTree"></fa-icon>
+            </div>
+            <div class="other-trees" i18n-title="@@OtherTrees" title="Other trees">
+              <fa-icon *ngFor="let item of treeList" [icon]="faTree"></fa-icon>
+            </div>
+          </div>
+
+          <div class="text-center mx-auto my-5">
+            <a class="in-link" [routerLink]="['/kuresel-isinma']"
+              fragment="karbon-ayak-izimi-kucultmek-icin-neler-yapabilirim">
+              <h5 i18n="@@HowToReduceCo2Emissions">
+                What can I do to reduce my carbon footprint?
+              </h5>
+            </a>
+          </div>
+
+          <h5 i18n="@@NewFlight" class="mt-5">
+            Would you like to calculate a new flight?
           </h5>
-        </a>
-      </div>
 
-        <!-- <p>
-    Would you like to see how many trees are donated already?
-</p>
-
-<p class="lead mt-5">
-    <a i18n="@@ContentStartHere" routerLink="/forest" class="btn btn-lg btn-primary">View</a>
-</p> -->
-
-        <h5 i18n="@@NewFlight" class="mt-5">
-          Would you like to calculate a new flight?
-        </h5>
-
-        <div class="text-center mx-auto my-4">
-          <button i18n="@@StartAgain" type="button" class="btn btn-primary" routerLink="/flight-calculator">Start again</button>
+          <div class="text-center mx-auto my-4">
+            <button i18n="@@StartAgain" type="button" class="btn btn-primary" routerLink="/flight-calculator">Start
+              again</button>
+          </div>
         </div>
-    </div>
-
       </div>
     </div>
   </div>
 </section>
-
-

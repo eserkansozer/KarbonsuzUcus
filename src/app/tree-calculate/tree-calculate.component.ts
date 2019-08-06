@@ -19,6 +19,7 @@ export class TreeCalculateComponent implements OnInit {
   treesToDonate: number;
   treesCounted = false;
   referrer: string;
+  totalDonatedTrees: number;
 
   public get treeUnits(): Array<any> {
     if (!this.treesToDonate) {

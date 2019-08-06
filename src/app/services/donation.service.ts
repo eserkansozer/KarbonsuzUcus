@@ -1,4 +1,6 @@
+import { DataApiService } from './data-api.service';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 declare let dataLayer: any;
 
@@ -7,7 +9,9 @@ declare let dataLayer: any;
 })
 export class DonationService {
 
-  constructor() { }
+  constructor(private donationApiService: DataApiService) {
+    donationApiService.url = environment.donationApiServiceUrl;
+  }
 
   donate(charity: string, treesToDonate: number) {
     let urlBase: string;
@@ -27,5 +31,8 @@ export class DonationService {
     window.open(urlBase + parameters);
   }
 
+  getTotalDonatedTreeCount() {
+    return this.donationApiService.getByRoute('/donations/trees/count');
+  }
 }
 

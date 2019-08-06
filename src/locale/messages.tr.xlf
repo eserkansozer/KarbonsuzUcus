@@ -168,6 +168,14 @@
         <target>Aktarmalı uçuş</target>
       </trans-unit>
 
+	  <trans-unit id="YourDonatedTrees">
+        <target>Bağışladığınız ağaçlar</target>
+      </trans-unit>
+
+<trans-unit id="OtherTrees">
+        <target>Diğer ağaçlar</target>
+      </trans-unit>
+
     </body>
   </file>
 </xliff>

@@ -21,13 +21,13 @@ import { ContentComponent } from './content/content.component';
 import { Co2InfoComponent } from './co2-info/co2-info.component';
 import { ContactComponent } from './contact/contact.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { ForestComponent } from './forest/forest.component';
 import { ConfirmationComponent } from './confirmation/confirmation.component';
 import { DonateComponent } from './donate/donate.component';
 import { Co2CalculateComponent } from './co2-calculate/co2-calculate.component';
 import { DistanceCalculateComponent } from './distance-calculate/distance-calculate.component';
 import { TreeCalculateComponent } from './tree-calculate/tree-calculate.component';
 import { DonationService } from './services/donation.service';
+import { DataApiService } from './services/data-api.service';
 
 
 @NgModule({
@@ -40,7 +40,6 @@ import { DonationService } from './services/donation.service';
       Co2InfoComponent,
       ContactComponent,
       NotFoundComponent,
-      ForestComponent,
       DonateComponent,
       ConfirmationComponent,
       Co2CalculateComponent,
@@ -83,7 +82,8 @@ import { DonationService } from './services/donation.service';
       )
    ],
    providers: [
-     DonationService
+     DonationService,
+     DataApiService
    ],
    bootstrap: [
       AppComponent

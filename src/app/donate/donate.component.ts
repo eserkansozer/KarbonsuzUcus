@@ -11,6 +11,7 @@ declare let dataLayer: any;
 export class DonateComponent implements OnInit {
 
   treeCount: number;
+  totalDonatedTrees: number;
   perTreeFeeTema = 10;
   perTreeFeeCekul = 13;
   perTreeFeeEgeOrman = 10;
