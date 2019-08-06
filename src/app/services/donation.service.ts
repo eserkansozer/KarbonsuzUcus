@@ -28,11 +28,13 @@ export class DonationService {
         break;
     }
     dataLayer.push({ event: 'gtm_donation_button_click', charity, comingFrom : sessionStorage.referrer, trees: treesToDonate });
+    this.donationApiService.create({Charity : charity, Referrer: sessionStorage.referrer, Trees : treesToDonate})
+    .subscribe(result => console.log(result));
     window.open(urlBase + parameters);
   }
 
   getTotalDonatedTreeCount() {
-    return this.donationApiService.getByRoute('/donations/trees/count');
+    return this.donationApiService.getByRoute('/trees/count');
   }
 }
 

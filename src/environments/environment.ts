@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  donationApiServiceUrl: 'https://offset-my-carbon-api.azurewebsites.net/api'
+  donationApiServiceUrl: 'https://offset-my-carbon-api.azurewebsites.net/api/donations'
 };
 
 /*

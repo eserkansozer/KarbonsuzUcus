@@ -26,7 +26,9 @@ export class DataApiService {
   }
 
   create(resource) {
-    return this.http.post(this.url, JSON.stringify(resource));
+    const headers = { 'Content-Type': 'application/json' };
+    const options = { headers };
+    return this.http.post(this.url, JSON.stringify(resource), options);
   }
 
   update(resource) {
