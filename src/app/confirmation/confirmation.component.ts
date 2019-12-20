@@ -1,5 +1,5 @@
 import { DonationService } from './../services/donation.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, LOCALE_ID, Inject } from '@angular/core';
 import { faTree } from '@fortawesome/free-solid-svg-icons';
 import { ActivatedRoute } from '@angular/router';
 
@@ -14,8 +14,10 @@ export class ConfirmationComponent implements OnInit {
   treeList: any[];
   yourTreeList: any[];
   yourTreeCount: number;
+  locale: string;
 
-  constructor(private route: ActivatedRoute, private donationService: DonationService) {
+  constructor(private route: ActivatedRoute, private donationService: DonationService, @Inject(LOCALE_ID) locale: string) {
+    this.locale = locale;
     this.route.params.subscribe(params => {
       this.yourTreeCount = +params.trees;
     });

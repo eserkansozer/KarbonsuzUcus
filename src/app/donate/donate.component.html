@@ -11,10 +11,10 @@
               {{treeCount}}
             </h4>
           <h4 class="mt-2">
-               <ng-container i18n="@@SelectCharities">Please select one of our preferred charities below</ng-container>
+               <ng-container i18n="@@SelectCharities">Please select one of our featured charities below</ng-container>
           </h4>
           <!-- <h4 class="pt-5" i18n="@@PleaseClick">Please click</h4> -->
-          <div class="text-center mx-auto my-5">
+          <div class="text-center mx-auto my-5" *ngIf="locale ==='tr'">
             <a class="in-link" [routerLink]="['/kuresel-isinma']" fragment="agac-dikmenin-kuresel-isinmaya-etkisi">Neden ağaç bağışlamalıyım?</a>
           </div>
 
@@ -24,8 +24,8 @@
               <div class="card" style="width: 18rem;">
                   <img class="card-img-top p-2" src="assets/images/logo_egeorman.jpg" alt="EGE ORMAN VAKFI">
                   <div class="card-body">
-                    <h5 class="card-title">EGE ORMAN</h5>
-                    <h5 class="card-title">VAKFI</h5>
+                    <h5 class="card-title">AEGEAN FOREST</h5>
+                    <h5 class="card-title">FOUNDATION</h5>
                     <p class="card-text" style="height: 57px"><br></p>
                     <a class="btn btn-success" (click)="onDonate('egeorman')" [routerLink]="['/confirmation', 'egeorman', treeCount]">
                       <div style='display: block'>
@@ -65,7 +65,7 @@
                     <ng-container i18n="@@DonateTrees">trees</ng-container>
                   </div>
                   <span class="badge badge-light">{{treeCount * perTreeFeeDocev}} ₺</span>
-                  <span class="badge badge-warning ml-1" i18n="@@Remittance">Remittance</span>
+                  <span class="badge badge-warning ml-1" i18n="@@Remittance">Bank transfer</span>
                 </a>
               </div>
             </div>
