@@ -28,6 +28,7 @@ import { DistanceCalculateComponent } from './distance-calculate/distance-calcul
 import { TreeCalculateComponent } from './tree-calculate/tree-calculate.component';
 import { DonationService } from './services/donation.service';
 import { DataApiService } from './services/data-api.service';
+import { InterMobilComponent } from './inter-mobil/inter-mobil.component';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { DataApiService } from './services/data-api.service';
       ConfirmationComponent,
       Co2CalculateComponent,
       DistanceCalculateComponent,
-      TreeCalculateComponent
+      TreeCalculateComponent,
+      InterMobilComponent
    ],
    imports: [
       BrowserModule,
@@ -63,6 +65,7 @@ import { DataApiService } from './services/data-api.service';
           {path: '', component: ContentComponent},
           {path: 'home', component: ContentComponent},
           {path: 'flight-calculator', component: DistanceCalculateComponent},
+          {path: 'inter-calculator', component: InterMobilComponent},
           {path: 'flight-calculator/from/:departure/to/:arrival', component: DistanceCalculateComponent},
           {path: 'flight-calculator/from/:departure/connection/:connection/to/:arrival', component: DistanceCalculateComponent},
           {path: 'ucus-hesapla', component: DistanceCalculateComponent},
@@ -79,11 +82,10 @@ import { DataApiService } from './services/data-api.service';
           {path: 'donate/:trees', component: DonateComponent},
           {path: '**', component: NotFoundComponent}
         ], {scrollPositionRestoration: 'enabled'}
-      )
-   ],
+      )   ],
    providers: [
-     DonationService,
-     DataApiService
+      DonationService,
+      DataApiService
    ],
    bootstrap: [
       AppComponent
