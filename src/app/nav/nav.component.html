@@ -26,6 +26,9 @@
         <li class="nav-item">
           <a i18n="@@NavContact" class="nav-link js-scroll-trigger" [routerLink]="['/contact']" routerLinkActive="active">Contact</a>
         </li>
+        <li class="nav-item" *ngIf="this.locale === 'tr'">
+          <a class="nav-link js-scroll-trigger" href="https://en.karbonsuzucus.com" routerLinkActive="active">English</a>
+        </li>
       </ul>
     </div>
   </div>
