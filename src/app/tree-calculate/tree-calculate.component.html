@@ -5,11 +5,11 @@
           <div id="page3" class="mx-auto h-100 mt-2 pb-5">
               <div class="border mx-auto mt-3 p-3">
                   <div class="text-center">
-                    <h4 i18n="@@ToOffset">To offset this amount you need</h4>
+                    <h4 i18n="@@ToOffset">To offset this amount of CO2 you need</h4>
                     <div class="display-2" style="color: greenyellow">
                         <span [countUp]="treesToDonate" (complete)="treesCounted = true">0</span>
                     </div>
-                    <h4 i18n="@@Trees">trees</h4>
+                    <h4 i18n="@@Trees">tree(s)</h4>
                     <div>
                       <span *ngFor="let unit of treeUnits">
                         <fa-icon class="mx-1 your-tree" [icon]="faTree"></fa-icon>
@@ -25,7 +25,7 @@
                     Donate to Ege Orman
                   </button>
                 </div>
-                <div class="text-center mx-auto mt-3 mb-4">
+                <div class="text-center mx-auto mt-3 mb-4"  *ngIf="locale === 'tr'">
                   <a class="in-link" [routerLink]="['/kuresel-isinma']" fragment="karbon-ayak-izi-telafi-etme-yontemleri">Karbon ayak izimi telafi etmek için başka neler yapabilirim?</a>
                 </div>
 

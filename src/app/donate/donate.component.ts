@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Inject, LOCALE_ID } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DonationService } from '../services/donation.service';
 
@@ -16,9 +16,11 @@ export class DonateComponent implements OnInit {
   perTreeFeeCekul = 13;
   perTreeFeeEgeOrman = 10;
   perTreeFeeDocev = 10;
+  locale: string;
 
-  constructor(private route: ActivatedRoute, private donationService: DonationService) {
+  constructor(private route: ActivatedRoute, private donationService: DonationService, @Inject(LOCALE_ID) locale: string) {
 
+    this.locale = locale;
     this.route.params.subscribe(params => {
       this.treeCount = +params.trees;
     });
