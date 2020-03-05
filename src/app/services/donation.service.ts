@@ -1,6 +1,7 @@
 import { DataApiService } from './data-api.service';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
+import { throwError } from 'rxjs';
 
 declare let dataLayer: any;
 
@@ -27,10 +28,19 @@ export class DonationService {
         urlBase = 'http://www.docev.org.tr/fidanbagisi.aspx?';
         break;
     }
-    dataLayer.push({ event: 'gtm_donation_button_click', charity, comingFrom : sessionStorage.referrer, trees: treesToDonate });
-    this.donationApiService.create({Charity : charity, Referrer: sessionStorage.referrer, Trees : treesToDonate})
+
+    // tslint:disable-next-line:no-string-literal
+    if (window['dataLayer']) {
+      dataLayer.push({ event: 'gtm_donation_button_click', charity, comingFrom: sessionStorage.referrer, trees: treesToDonate });
+    }
+
+    this.donationApiService
+    .create({Charity : charity, Referrer: sessionStorage.referrer, Trees : treesToDonate})
     .subscribe(result => console.log(result));
-    window.open(urlBase + parameters);
+
+    if (urlBase) {
+      window.open(urlBase + parameters);
+    }
   }
 
   getTotalDonatedTreeCount() {
