@@ -1,7 +1,6 @@
 import { DataApiService } from './data-api.service';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { throwError } from 'rxjs';
 
 declare let dataLayer: any;
 
